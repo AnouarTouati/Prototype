@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{7f268418-7ed6-4552-b33a-ab63a2ff1994}">
+        <property name="assetPath">
+            <value>demo_on_to_off.wav</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>15.490090702947846</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{6fbd5eef-fa56-4d5e-a561-d88709036190}</destination>
+        </relationship>
+    </object>
+</objects>

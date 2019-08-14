@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4609497967677833907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4609497967677833917}
+  - component: {fileID: 4609497967677833906}
+  m_Layer: 0
+  m_Name: SaveGame
+  m_TagString: UserCreatedDontDestroyOnLoad
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4609497967677833917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4609497967677833907}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.730619, y: 1.6308407, z: 20.417028}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4609497967677833906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4609497967677833907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027dc84adeb4e094eb9e13191631f813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PurchasedCarsList: []
+  SelectedCarForPlay:
+    CarName: 
+    BodyColor: []
+    SideViewMirrorsColor: []
+    HoodColor: []
+    RimsColor: []
+    EngineUpgrade: 0
+    SuspensionUpgrade: 0
+    TiersUpgrade: 0
+    BrakeUpgrade: 0
+  j: 0
+  AllCarsPrefabs:
+  - {fileID: 190106488130304292, guid: c6e650c9fd825354b8b48759724b5572, type: 3}
+  - {fileID: 4620123376039418103, guid: 524361269484ea3429b821c8435f35de, type: 3}
+  ProfileName: 
+  CarSelectionMenuScript: {fileID: 0}
+  MainMenuScript: {fileID: 0}
+  NamesOfAvailibleProfiles: []
+  GameMode: 
+  PlayerAlreadyLoadedAProfileNoNeedToReload: 0
+  JustReturnedFromRoomToLobby: 0
+  OfflineMode: 0

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ce6aa9b88c83808419351c2973806adb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - SaveGame: {instanceID: 0}
+  - AllCars: {instanceID: 0}
+  - BuyCarGUI: {fileID: 1465706713801412, guid: 145faeaa55a0d4e4ba821cb4016ec528,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

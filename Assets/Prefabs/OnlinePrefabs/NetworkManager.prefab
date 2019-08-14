@@ -1,0 +1,189 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1836174752101810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4868083902106042}
+  - component: {fileID: 114645508169999278}
+  - component: {fileID: 210106305}
+  - component: {fileID: 2020481852001018684}
+  m_Layer: 0
+  m_Name: NetworkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4868083902106042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836174752101810}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 472.18112, y: 283.1057, z: 421.1147}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114645508169999278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836174752101810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd0270cf26bc6245a0a22f8e2df1372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NetworkPort: 7777
+  m_ServerBindToIP: 0
+  m_ServerBindAddress: 
+  m_NetworkAddress: localhost
+  m_DontDestroyOnLoad: 1
+  m_RunInBackground: 1
+  m_ScriptCRCCheck: 1
+  m_MaxDelay: 0.01
+  m_LogLevel: 4
+  m_PlayerPrefab: {fileID: 0}
+  m_AutoCreatePlayer: 0
+  m_PlayerSpawnMethod: 1
+  m_OfflineScene: MainMenu
+  m_OnlineScene: 
+  m_SpawnPrefabs: []
+  m_CustomConfig: 0
+  m_MaxConnections: 4
+  m_ConnectionConfig:
+    m_PacketSize: 1440
+    m_FragmentSize: 500
+    m_ResendTimeout: 1200
+    m_DisconnectTimeout: 2000
+    m_ConnectTimeout: 2000
+    m_MinUpdateTimeout: 10
+    m_PingTimeout: 500
+    m_ReducedPingTimeout: 100
+    m_AllCostTimeout: 20
+    m_NetworkDropThreshold: 5
+    m_OverflowDropThreshold: 5
+    m_MaxConnectionAttempt: 10
+    m_AckDelay: 33
+    m_SendDelay: 10
+    m_MaxCombinedReliableMessageSize: 100
+    m_MaxCombinedReliableMessageCount: 10
+    m_MaxSentMessageQueueSize: 512
+    m_AcksType: 1
+    m_UsePlatformSpecificProtocols: 0
+    m_InitialBandwidth: 0
+    m_BandwidthPeakFactor: 2
+    m_WebSocketReceiveBufferMaxSize: 0
+    m_UdpSocketReceiveBufferMaxSize: 0
+    m_SSLCertFilePath: 
+    m_SSLPrivateKeyFilePath: 
+    m_SSLCAFilePath: 
+    m_Channels: []
+  m_GlobalConfig:
+    m_ThreadAwakeTimeout: 1
+    m_ReactorModel: 0
+    m_ReactorMaximumReceivedMessages: 1024
+    m_ReactorMaximumSentMessages: 1024
+    m_MaxPacketSize: 2000
+    m_MaxHosts: 16
+    m_ThreadPoolSize: 1
+    m_MinTimerTimeout: 1
+    m_MaxTimerTimeout: 12000
+    m_MinNetSimulatorTimeout: 1
+    m_MaxNetSimulatorTimeout: 12000
+  m_Channels: 
+  m_UseWebSockets: 0
+  m_UseSimulator: 0
+  m_SimulatedLatency: 1
+  m_PacketLossPercentage: 0
+  m_MaxBufferedPackets: 16
+  m_AllowFragmentation: 1
+  m_MatchHost: mm.unet.unity3d.com
+  m_MatchPort: 443
+  matchName: default
+  matchSize: 4
+  isNetworkActive: 0
+  matchMaker: {fileID: 0}
+  PlayerPlaceHolderPrefabs:
+  - {fileID: 1157608020624878, guid: e7ed521c458cbbe4e87c6804a522ccf3, type: 3}
+  AllCars:
+  - {fileID: 1614319155292700, guid: 4468929d20fcfa549925dfc3c33ee721, type: 3}
+  - {fileID: 1614319155292700, guid: 1abaa0e9bcd0ad649af552f81205b163, type: 3}
+  - {fileID: 1614319155292700, guid: 8fe81773a51ca6e40a4bdb1d7bb3d50d, type: 3}
+  - {fileID: 1614319155292700, guid: d1f52bf92d7c4614b982ce5c5c62aaa8, type: 3}
+  - {fileID: 1614319155292700, guid: c8ae718d5e383694bb91cc87ffd36dd2, type: 3}
+  - {fileID: 1614319155292700, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
+  SystemPrefabs: []
+  PickableItems:
+  - {fileID: 1800561499328926, guid: 925dac5b429dbb04cb12c9dc496eeaea, type: 3}
+  - {fileID: 1253725319208558, guid: b9011f6ace6da504aa3996c64d5e1d37, type: 3}
+  PickableContainers:
+  - {fileID: 1357165404536792, guid: 6ddcfa12c64ad2e4c837bf8898ba988e, type: 3}
+  - {fileID: 1119236370238722, guid: 719c4ade4c313364183bb692091410da, type: 3}
+  SaveGame: {fileID: 210106305}
+  GameMode: 
+  GameModes:
+  - Racing
+  - DeathMatch
+  Index: 0
+  LobbyManager: {fileID: 0}
+  RaceSystem: {fileID: 0}
+--- !u!114 &210106305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836174752101810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027dc84adeb4e094eb9e13191631f813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PurchasedCarsList: []
+  SelectedCarForPlay:
+    CarName: 
+    UserColor: 
+    EngineLevel: 0
+    SuspensionLevel: 0
+    TiersLevel: 0
+    BrakeLevel: 0
+  SelectedCar:
+    CarName: 
+    UserColor: 
+    EngineLevel: 0
+    SuspensionLevel: 0
+    TiersLevel: 0
+    BrakeLevel: 0
+  j: 0
+  AllCars: {fileID: 11400000, guid: 8dfd4c12519400345a0646f08c3d94e2, type: 2}
+  ProfileName: 
+  CarSelectionMenuScript: {fileID: 0}
+  MainMenuScript: {fileID: 0}
+  NamesOfAvailibleProfiles: []
+  GameMode: 
+  PlayerAlreadyLoadedAProfileNoNeedToReload: 0
+--- !u!114 &2020481852001018684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836174752101810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225223a857e7d1040807ab05a5fe1616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CustomNetworkManager: {fileID: 114645508169999278}

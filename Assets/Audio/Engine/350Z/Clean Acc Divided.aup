@@ -1,0 +1,65 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="Clean Acc Divided_data" version="1.3.0" audacityversion="2.3.1" sel0="14.0305944987" sel1="15.2276870748" vpos="0" h="0.0000000000" zoom="56.8044354839" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="Software" value="Lavf56.25.101"/>
+		<tag name="major_brand" value="dash"/>
+		<tag name="minor_version" value="0"/>
+		<tag name="compatible_brands" value="iso6mp41"/>
+	</tags>
+	<wavetrack name="Kaktuss Nissan 350Z Boosted by Coobcio Garage 900HP Dyno Test" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="671541">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808b0a.au" len="170535" min="-0.928048" max="0.991115" rms="0.335558"/>
+				</waveblock>
+				<waveblock start="170535">
+					<simpleblockfile filename="e08086e1.au" len="170535" min="-0.953578" max="0.980323" rms="0.397078"/>
+				</waveblock>
+				<waveblock start="341070">
+					<simpleblockfile filename="e080852d.au" len="165235" min="-0.956635" max="0.956243" rms="0.334216"/>
+				</waveblock>
+				<waveblock start="506305">
+					<simpleblockfile filename="e0808a06.au" len="165236" min="-0.969866" max="0.970496" rms="0.307136"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Kaktuss Nissan 350Z Boosted by Coobcio Garage 900HP Dyno Test" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="671541">
+				<waveblock start="0">
+					<simpleblockfile filename="e08080fc.au" len="170535" min="-0.933538" max="0.908858" rms="0.316109"/>
+				</waveblock>
+				<waveblock start="170535">
+					<simpleblockfile filename="e0808b8f.au" len="170535" min="-0.90304" max="0.926568" rms="0.364991"/>
+				</waveblock>
+				<waveblock start="341070">
+					<simpleblockfile filename="e0808608.au" len="165235" min="-0.889054" max="0.91262" rms="0.290168"/>
+				</waveblock>
+				<waveblock start="506305">
+					<simpleblockfile filename="e0808a92.au" len="165236" min="-0.928566" max="0.874256" rms="0.262582"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<labeltrack name="Label Track" numlabels="15" height="73" minimized="0" isSelected="1">
+		<label t="0.0000000000" t1="1.0034427684" title=""/>
+		<label t="1.0034427684" t1="2.0596983141" title=""/>
+		<label t="2.0596983141" t1="3.0455368234" title=""/>
+		<label t="3.0455368234" t1="4.0489795918" title=""/>
+		<label t="4.0489795918" t1="5.0700266193" title=""/>
+		<label t="5.0700266193" t1="6.0382608696" title=""/>
+		<label t="6.0382608696" t1="7.0417036380" title=""/>
+		<label t="7.0417036380" t1="8.0451464064" title=""/>
+		<label t="8.0451464064" t1="9.0485891748" title=""/>
+		<label t="9.0485891748" t1="10.0696362023" title=""/>
+		<label t="10.0696362023" t1="11.0554747116" title=""/>
+		<label t="11.0554747116" t1="12.0413132209" title=""/>
+		<label t="12.0413132209" t1="13.0447559894" title=""/>
+		<label t="13.0447559894" t1="14.0305944987" title=""/>
+		<label t="14.0305944987" t1="15.2276870748" title=""/>
+	</labeltrack>
+</project>

@@ -1,0 +1,111 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="Acc_data" version="1.3.0" audacityversion="2.3.1" sel0="3.1207125793" sel1="3.1566439909" vpos="0" h="2.7724742338" zoom="2977.8455284553" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="major_brand" value="mp42"/>
+		<tag name="Software" value="Lavf56.25.101"/>
+		<tag name="minor_version" value="0"/>
+		<tag name="compatible_brands" value="isommp42"/>
+	</tags>
+	<wavetrack name="Acc" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="139208">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808c05.au" len="139208" min="-1.008448" max="0.992294" rms="0.291441"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Acc" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="139208">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808ff1.au" len="139208" min="-0.957792" max="0.850628" rms="0.250579"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<labeltrack name="Label Track" numlabels="79" height="73" minimized="0" isSelected="1">
+		<label t="0.0000000000" t1="0.0409692171" title=""/>
+		<label t="0.0409692171" t1="0.0805951812" title=""/>
+		<label t="0.0805951812" t1="0.1208927718" title=""/>
+		<label t="0.1208927718" t1="0.1608545492" title=""/>
+		<label t="0.1608545492" t1="0.2011521398" title=""/>
+		<label t="0.2011521398" t1="0.2411139171" title=""/>
+		<label t="0.2411139171" t1="0.2814115077" title=""/>
+		<label t="0.2814115077" t1="0.3210374718" title=""/>
+		<label t="0.3210374718" t1="0.3609992492" title=""/>
+		<label t="0.3609992492" t1="0.4009610266" title=""/>
+		<label t="0.4009610266" t1="0.4409228039" title=""/>
+		<label t="0.4409228039" t1="0.4808845813" title=""/>
+		<label t="0.4808845813" t1="0.5205105454" title=""/>
+		<label t="0.5205105454" t1="0.5611439492" title=""/>
+		<label t="0.5611439492" t1="0.6011057266" title=""/>
+		<label t="0.6011057266" t1="0.6410675039" title=""/>
+		<label t="0.6410675039" t1="0.6810292813" title=""/>
+		<label t="0.6810292813" t1="0.7209910586" title=""/>
+		<label t="0.7209910586" t1="0.7609528360" title=""/>
+		<label t="0.7609528360" t1="0.8009146133" title=""/>
+		<label t="0.8009146133" t1="0.8412122039" title=""/>
+		<label t="0.8412122039" t1="0.8811739813" title=""/>
+		<label t="0.8811739813" t1="0.9211357587" title=""/>
+		<label t="0.9211357587" t1="0.9614333493" title=""/>
+		<label t="0.9614333493" t1="1.0010593134" title=""/>
+		<label t="1.0010593134" t1="1.0406852775" title=""/>
+		<label t="1.0406852775" t1="1.0809828681" title=""/>
+		<label t="1.0809828681" t1="1.1209446454" title=""/>
+		<label t="1.1209446454" t1="1.1609064228" title=""/>
+		<label t="1.1609064228" t1="1.2008682001" title=""/>
+		<label t="1.2008682001" t1="1.2408299775" title=""/>
+		<label t="1.2408299775" t1="1.2807917548" title=""/>
+		<label t="1.2807917548" t1="1.3210893454" title=""/>
+		<label t="1.3210893454" t1="1.3610511228" title=""/>
+		<label t="1.3610511228" t1="1.4010129001" title=""/>
+		<label t="1.4010129001" t1="1.4409746775" title=""/>
+		<label t="1.4426537438" t1="1.4809364548" title=""/>
+		<label t="1.4809364548" t1="1.5215698587" title=""/>
+		<label t="1.5215698587" t1="1.5605241963" title=""/>
+		<label t="1.5605241963" t1="1.6011576002" title=""/>
+		<label t="1.6011576002" t1="1.6411193775" title=""/>
+		<label t="1.6411193775" t1="1.6810811549" title=""/>
+		<label t="1.6810811549" t1="1.7213787455" title=""/>
+		<label t="1.7213787455" t1="1.7613405228" title=""/>
+		<label t="1.7613405228" t1="1.8009664869" title=""/>
+		<label t="1.8009664869" t1="1.8409282643" title=""/>
+		<label t="1.8409282643" t1="1.8808900416" title=""/>
+		<label t="1.8808900416" t1="1.9205160057" title=""/>
+		<label t="1.9205160057" t1="1.9611494096" title=""/>
+		<label t="1.9611494096" t1="2.0011111869" title=""/>
+		<label t="2.0011111869" t1="2.0407371510" title=""/>
+		<label t="2.0407371510" t1="2.0806989284" title=""/>
+		<label t="2.0806989284" t1="2.1206607058" title=""/>
+		<label t="2.1206607058" t1="2.1609582964" title=""/>
+		<label t="2.1609582964" t1="2.2009200737" title=""/>
+		<label t="2.2009200737" t1="2.2405460378" title=""/>
+		<label t="2.2405460378" t1="2.2808436284" title=""/>
+		<label t="2.2808436284" t1="2.3208054058" title=""/>
+		<label t="2.3208054058" t1="2.3611029964" title=""/>
+		<label t="2.3611029964" t1="2.4010647737" title=""/>
+		<label t="2.4010647737" t1="2.4410265511" title=""/>
+		<label t="2.4410265511" t1="2.4809883284" title=""/>
+		<label t="2.4809883284" t1="2.5209501058" title=""/>
+		<label t="2.5209501058" t1="2.5609118831" title=""/>
+		<label t="2.5609118831" t1="2.6005378472" title=""/>
+		<label t="2.6005378472" t1="2.6415070644" title=""/>
+		<label t="2.6415070644" t1="2.6811330285" title=""/>
+		<label t="2.6811330285" t1="2.7207589926" title=""/>
+		<label t="2.7207589926" t1="2.7613923964" title=""/>
+		<label t="2.7613923964" t1="2.8010183605" title=""/>
+		<label t="2.8010183605" t1="2.8406443246" title=""/>
+		<label t="2.8406443246" t1="2.8806061020" title=""/>
+		<label t="2.8806061020" t1="2.9209036926" title=""/>
+		<label t="2.9209036926" t1="2.9605296567" title=""/>
+		<label t="2.9605296567" t1="3.0011630605" title=""/>
+		<label t="3.0011630605" t1="3.0407890246" title=""/>
+		<label t="3.0407890246" t1="3.0814224285" title=""/>
+		<label t="3.0814224285" t1="3.1207125793" title=""/>
+		<label t="3.1207125793" t1="3.1566439909" title=""/>
+	</labeltrack>
+</project>
