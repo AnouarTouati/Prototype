@@ -19,7 +19,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 4617075093020353753}
+    m_TransformParent: {fileID: 4620123376039418591}
     m_Modifications:
     - target: {fileID: 3432609874202191318, guid: 5a3f862bdb3698b479bd1456249ccadb,
         type: 3}
@@ -196,11 +196,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car2
       objectReference: {fileID: 0}
-    - target: {fileID: 6588757135541183523, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4183567983115838, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -244,6 +239,81 @@ PrefabInstance:
     - target: {fileID: 4183567983115838, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: RearWheelDrive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: AllWheelDrive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: GearUpRPMNextGear
+      value: 4500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: GearUpRPMThisGear
+      value: 5600
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[1]
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[2]
+      value: 3.6160715
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[3]
+      value: 2.9057717
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[4]
+      value: 2.334995
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[5]
+      value: 1.8763353
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: MaxSpeedToEachGear.Array.data[1]
+      value: 84
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: MaxSpeedToEachGear.Array.data[2]
+      value: 105
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: MaxSpeedToEachGear.Array.data[3]
+      value: 131
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: MaxSpeedToEachGear.Array.data[4]
+      value: 163
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: Motor
+      value: 
+      objectReference: {fileID: 4620123376039418487}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: SaveGame
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114770850615598026, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
@@ -340,81 +410,6 @@ PrefabInstance:
       propertyPath: Hood
       value: 
       objectReference: {fileID: 490107463978827676}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: RearWheelDrive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: AllWheelDrive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: GearUpRPMNextGear
-      value: 4500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: GearUpRPMThisGear
-      value: 5600
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[1]
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[2]
-      value: 3.6160715
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[3]
-      value: 2.9057717
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[4]
-      value: 2.334995
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[5]
-      value: 1.8763353
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: MaxSpeedToEachGear.Array.data[1]
-      value: 84
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: MaxSpeedToEachGear.Array.data[2]
-      value: 105
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: MaxSpeedToEachGear.Array.data[3]
-      value: 131
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: MaxSpeedToEachGear.Array.data[4]
-      value: 163
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: Motor
-      value: 
-      objectReference: {fileID: 4722869075402500845}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: SaveGame
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 114553571873517578, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: WheelMeshes.Array.size
@@ -445,32 +440,22 @@ PrefabInstance:
       propertyPath: name
       value: 350Z
       objectReference: {fileID: 0}
-    - target: {fileID: 146735670542222128, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+    - target: {fileID: 6588757135541183523, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 146197869002115480, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: m_Radius
       value: 0.18
       objectReference: {fileID: 0}
-    - target: {fileID: 146735670542222128, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+    - target: {fileID: 146197869002115480, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: m_ForwardFriction.m_ExtremumSlip
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 146735670542222128, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: m_ForwardFriction.m_ExtremumValue
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 146245949291655470, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 146245949291655470, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: m_ForwardFriction.m_ExtremumSlip
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 146245949291655470, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+    - target: {fileID: 146197869002115480, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: m_ForwardFriction.m_ExtremumValue
       value: 30
@@ -490,17 +475,32 @@ PrefabInstance:
       propertyPath: m_ForwardFriction.m_ExtremumValue
       value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 146197869002115480, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+    - target: {fileID: 146245949291655470, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: m_Radius
       value: 0.18
       objectReference: {fileID: 0}
-    - target: {fileID: 146197869002115480, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+    - target: {fileID: 146245949291655470, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: m_ForwardFriction.m_ExtremumSlip
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 146197869002115480, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+    - target: {fileID: 146245949291655470, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: m_ForwardFriction.m_ExtremumValue
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 146735670542222128, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 146735670542222128, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: m_ForwardFriction.m_ExtremumSlip
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 146735670542222128, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: m_ForwardFriction.m_ExtremumValue
       value: 30
@@ -510,13 +510,13 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 4895981914555922, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
+    - target: {fileID: 4037673940189340, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.59
+      value: -0.56
       objectReference: {fileID: 0}
-    - target: {fileID: 4895981914555922, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
+    - target: {fileID: 4037673940189340, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.77
+      value: 0.93
       objectReference: {fileID: 0}
     - target: {fileID: 4157297840258910, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -534,23 +534,23 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.93
       objectReference: {fileID: 0}
-    - target: {fileID: 4037673940189340, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
+    - target: {fileID: 4895981914555922, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.56
+      value: 0.59
       objectReference: {fileID: 0}
-    - target: {fileID: 4037673940189340, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
+    - target: {fileID: 4895981914555922, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.93
+      value: -0.77
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
---- !u!4 &4617075093020353753 stripped
+--- !u!4 &4620123376039418591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4183567983115838, guid: dde43eef922d4c747a062f2ebe9ca5fa,
     type: 3}
   m_PrefabInstance: {fileID: 4620123376039418599}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4722869075402500845 stripped
+--- !u!114 &4620123376039418487 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114553571873517578, guid: dde43eef922d4c747a062f2ebe9ca5fa,
     type: 3}

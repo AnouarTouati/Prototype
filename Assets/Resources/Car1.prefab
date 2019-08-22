@@ -69,6 +69,91 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[1]
+      value: 9.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: ModifiableMaxTorqueByItems
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: GearUpRPMNextGear
+      value: 4500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: GearUpRPMThisGear
+      value: 5600
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[2]
+      value: 7.794643
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[3]
+      value: 6.263552
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[4]
+      value: 5.0332117
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[5]
+      value: 4.044545
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: MaxSpeedToEachGear.Array.data[1]
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: MaxSpeedToEachGear.Array.data[2]
+      value: 57
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: MaxSpeedToEachGear.Array.data[3]
+      value: 71
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: MaxSpeedToEachGear.Array.data[4]
+      value: 88
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: Motor
+      value: 
+      objectReference: {fileID: 190106488130304932}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: SaveGame
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: BrakingTorque
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: AllWheelDrive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: RearWheelDrive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114770850615598026, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: Body
@@ -164,91 +249,6 @@ PrefabInstance:
       propertyPath: DefaultRimsColor.b
       value: 0.5566038
       objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[1]
-      value: 9.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: ModifiableMaxTorqueByItems
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: GearUpRPMNextGear
-      value: 4500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: GearUpRPMThisGear
-      value: 5600
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[2]
-      value: 7.794643
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[3]
-      value: 6.263552
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[4]
-      value: 5.0332117
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: WRPMtoERPMmultiplierByGears.Array.data[5]
-      value: 4.044545
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: MaxSpeedToEachGear.Array.data[1]
-      value: 46
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: MaxSpeedToEachGear.Array.data[2]
-      value: 57
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: MaxSpeedToEachGear.Array.data[3]
-      value: 71
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: MaxSpeedToEachGear.Array.data[4]
-      value: 88
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: Motor
-      value: 
-      objectReference: {fileID: 231263622721243966}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: SaveGame
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: BrakingTorque
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: AllWheelDrive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: RearWheelDrive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 114553571873517578, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: WheelMeshes.Array.data[0]
@@ -274,22 +274,12 @@ PrefabInstance:
       propertyPath: name
       value: NissanGTR
       objectReference: {fileID: 0}
-    - target: {fileID: 146735670542222128, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+    - target: {fileID: 146197869002115480, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: m_ForwardFriction.m_ExtremumSlip
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 146735670542222128, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: m_ForwardFriction.m_ExtremumValue
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 146245949291655470, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: m_ForwardFriction.m_ExtremumSlip
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 146245949291655470, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+    - target: {fileID: 146197869002115480, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: m_ForwardFriction.m_ExtremumValue
       value: 30
@@ -304,12 +294,22 @@ PrefabInstance:
       propertyPath: m_ForwardFriction.m_ExtremumValue
       value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 146197869002115480, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+    - target: {fileID: 146245949291655470, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: m_ForwardFriction.m_ExtremumSlip
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 146197869002115480, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+    - target: {fileID: 146245949291655470, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: m_ForwardFriction.m_ExtremumValue
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 146735670542222128, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: m_ForwardFriction.m_ExtremumSlip
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 146735670542222128, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: m_ForwardFriction.m_ExtremumValue
       value: 30
@@ -340,13 +340,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
---- !u!4 &193012914754815242 stripped
+--- !u!4 &190106488130304780 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4183567983115838, guid: dde43eef922d4c747a062f2ebe9ca5fa,
     type: 3}
   m_PrefabInstance: {fileID: 190106488130304820}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &231263622721243966 stripped
+--- !u!114 &190106488130304932 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114553571873517578, guid: dde43eef922d4c747a062f2ebe9ca5fa,
     type: 3}
@@ -363,7 +363,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 193012914754815242}
+    m_TransformParent: {fileID: 190106488130304780}
     m_Modifications:
     - target: {fileID: 2072366472541838443, guid: 4653a71654f5fd44f92e66ca287e6582,
         type: 3}
