@@ -1,6 +1,4 @@
-﻿#if UNITY_2017_1_OR_NEWER
-
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 using FMODUnity;
 using System;
@@ -144,5 +142,3 @@ public class FMODEventPlayableEditor : Editor
         }
     }
 }
-
-#endif //UNITY_2017_1_OR_NEWER
