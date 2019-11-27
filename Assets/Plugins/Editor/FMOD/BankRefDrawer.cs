@@ -1,4 +1,8 @@
-﻿using UnityEditor;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using UnityEditor;
 using UnityEngine;
 
 namespace FMODUnity
@@ -15,7 +19,11 @@ namespace FMODUnity
             EditorGUI.BeginProperty(position, label, property);
 
             Event e = Event.current;
+            #if UNITY_2017_3_OR_NEWER
             if (e.type == EventType.DragPerform && position.Contains(e.mousePosition))
+            #else
+            if (e.type == EventType.dragPerform && position.Contains(e.mousePosition))
+            #endif
             {
                 if (DragAndDrop.objectReferences.Length > 0 &&
                     DragAndDrop.objectReferences[0] != null &&

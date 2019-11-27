@@ -1,4 +1,8 @@
-﻿using UnityEditor;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using UnityEditor;
 using UnityEngine;
 
 namespace FMODUnity
@@ -26,6 +30,8 @@ namespace FMODUnity
 
             EditorGUILayout.PropertyField(preload, new GUIContent("Preload Sample Data"));
 
+            //EditorGUILayout.PropertyField(banks);
+            
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.PrefixLabel("Banks");
             EditorGUILayout.BeginVertical();
@@ -37,7 +43,11 @@ namespace FMODUnity
 
                 var browser = EventBrowser.CreateInstance<EventBrowser>();
 
+                #if UNITY_5_0 || UNITY_5_1
+                browser.title  = "Select FMOD Bank";
+                #else
                 browser.titleContent = new GUIContent("Select FMOD Bank");
+                #endif
 
                 browser.SelectBank(newBank);
                 browser.ShowUtility();
@@ -68,7 +78,11 @@ namespace FMODUnity
             EditorGUILayout.EndHorizontal();
 
             Event e = Event.current;
+            #if UNITY_2017_3_OR_NEWER
             if (e.type == EventType.DragPerform)
+            #else
+            if (e.type == EventType.dragPerform)
+            #endif
             {
                 if (DragAndDrop.objectReferences.Length > 0 &&
                     DragAndDrop.objectReferences[0] != null &&

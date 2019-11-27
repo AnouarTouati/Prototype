@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEditor;
 using UnityEngine;
 
@@ -47,8 +49,8 @@ namespace FMODUnity
             EditorGUILayout.PropertyField(begin, new GUIContent("Play Event"));
             EditorGUILayout.PropertyField(end, new GUIContent("Stop Event"));
 
-            if ((begin.enumValueIndex >= (int)EmitterGameEvent.TriggerEnter && begin.enumValueIndex <= (int)EmitterGameEvent.TriggerExit2D) ||
-            (end.enumValueIndex >= (int)EmitterGameEvent.TriggerEnter && end.enumValueIndex <= (int)EmitterGameEvent.TriggerExit2D))
+            if ((begin.enumValueIndex >= 3 && begin.enumValueIndex <= 6) ||
+            (end.enumValueIndex >= 3 && end.enumValueIndex <= 6))
             {
                 tag.stringValue = EditorGUILayout.TagField("Collision Tag", tag.stringValue);
             }
@@ -161,6 +163,7 @@ namespace FMODUnity
                             EditorGUI.EndDisabledGroup();
                             EditorGUILayout.EndHorizontal();
                         }
+
                     }
                 }
 
@@ -238,7 +241,7 @@ namespace FMODUnity
         }
 
         void SetParameterValue(string name, float value)
-        {
+        {            
             if (serializedObject.isEditingMultipleObjects)
             {
                 foreach (var obj in serializedObject.targetObjects)
@@ -262,6 +265,7 @@ namespace FMODUnity
             }
         }
 
+
         void AddParameterValue(string name, float value)
         {
             if (serializedObject.isEditingMultipleObjects)
@@ -284,7 +288,7 @@ namespace FMODUnity
             if (param == null)
             {
                 int end = emitter.Params.Length;
-                Array.Resize(ref emitter.Params, end + 1);
+                Array.Resize<ParamRef>(ref emitter.Params, end + 1);
                 emitter.Params[end] = new ParamRef();
                 emitter.Params[end].Name = name;
                 emitter.Params[end].Value = value;
@@ -321,8 +325,9 @@ namespace FMODUnity
             {
                 int end = emitter.Params.Length - 1;
                 emitter.Params[found] = emitter.Params[end];
-                Array.Resize(ref emitter.Params, end);
+                Array.Resize<ParamRef>(ref emitter.Params, end);
             }
         }
     }
+
 }

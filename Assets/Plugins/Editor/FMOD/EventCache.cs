@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace FMODUnity
@@ -12,8 +13,6 @@ namespace FMODUnity
         public List<EditorBankRef> EditorBanks;
         [SerializeField]
         public List<EditorEventRef> EditorEvents;
-        [SerializeField]
-        public List<EditorParamRef> EditorParameters;
         [SerializeField]
         public List<EditorBankRef> MasterBanks;
         [SerializeField]
@@ -33,7 +32,6 @@ namespace FMODUnity
         {
             EditorBanks = new List<EditorBankRef>();
             EditorEvents = new List<EditorEventRef>();
-            EditorParameters = new List<EditorParamRef>();
             MasterBanks = new List<EditorBankRef>();
             StringsBanks = new List<EditorBankRef>();
             stringsBankWriteTime = 0;

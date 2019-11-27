@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{49adab65-8ca3-4395-8758-941c7d260b12}">
+        <property name="assetPath">
+            <value>1 ExhL_00786.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>36</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>3.4204444444444446</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{6fbd5eef-fa56-4d5e-a561-d88709036190}</destination>
+        </relationship>
+    </object>
+</objects>
