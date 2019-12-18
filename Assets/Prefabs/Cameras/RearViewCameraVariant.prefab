@@ -71,7 +71,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 8400000, guid: 4a8112604d2f0194488b0b4b4bbd539f, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 7124445768199477509, guid: 136623d3ef8684549b0bf574ae57ffcf,
         type: 3}
       propertyPath: m_TargetDisplay
@@ -81,6 +81,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124445768199477509, guid: 136623d3ef8684549b0bf574ae57ffcf,
+        type: 3}
+      propertyPath: m_Depth
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7184967590623928631, guid: 136623d3ef8684549b0bf574ae57ffcf, type: 3}

@@ -160,6 +160,22 @@ MonoBehaviour:
   Min: 0
   Max: 6300
   Default: 0
+--- !u!114 &-7789634225965995061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: DistanceFromListener
+  Min: 0
+  Max: 200
+  Default: 0
 --- !u!114 &-7722095004460933537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,7 +369,7 @@ MonoBehaviour:
   Path: event:/Effects/Collide
   guid: ef7fb2c0ac6fa24eb38706923da7fdd3
   Banks:
-  - {fileID: -7284307947909485017}
+  - {fileID: 1775366772442586816}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -846,7 +862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\FMODproject\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636918123120879702
+  lastModified: 637105270001717025
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -1209,17 +1225,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -2297192548792279071}
-  - {fileID: -7284307947909485017}
+  - {fileID: 1775366772442586816}
   EditorEvents:
   - {fileID: 2250903109765064596}
   - {fileID: 7438193056777032639}
   - {fileID: -6815259961098438831}
   MasterBanks:
-  - {fileID: -7284307947909485017}
+  - {fileID: 1775366772442586816}
   StringsBanks:
   - {fileID: -2297192548792279071}
-  stringsBankWriteTime: 636918123120879702
+  stringsBankWriteTime: 637105270001717025
   cacheVersion: 3
+--- !u!114 &123695006995471733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: RPM
+  Min: 0
+  Max: 6300
+  Default: 0
 --- !u!114 &164618330660697436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1364,7 +1396,42 @@ MonoBehaviour:
   Min: 0
   Max: 6300
   Default: 0
+--- !u!114 &1775366772442586816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Projects\UnityGAMES\Prototype\Assets\FMODproject\Build\Desktop\Master Bank.bank
+  lastModified: 637105270001551485
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 858336
+  Exists: 1
 --- !u!114 &1999241618971142875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: RPM
+  Min: 0
+  Max: 6300
+  Default: 0
+--- !u!114 &2244618895084997530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1395,13 +1462,13 @@ MonoBehaviour:
   Path: event:/Engine/NissanGTR
   guid: 840648f86d2c8b4bb9f53cb2c38b14fb
   Banks:
-  - {fileID: -7284307947909485017}
+  - {fileID: 1775366772442586816}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -8728149119951891468}
-  - {fileID: 2793869788847033463}
+  - {fileID: 2244618895084997530}
+  - {fileID: 7191284486330937131}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -1877,6 +1944,22 @@ MonoBehaviour:
   Min: 0
   Max: 6300
   Default: 0
+--- !u!114 &7191284486330937131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: DistanceFromListener
+  Min: 0
+  Max: 200
+  Default: 0
 --- !u!114 &7438193056777032639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1892,13 +1975,13 @@ MonoBehaviour:
   Path: event:/Engine/350Z
   guid: a85f702fff91f240b6f13fbbe0e2421c
   Banks:
-  - {fileID: -7284307947909485017}
+  - {fileID: 1775366772442586816}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 3585815572686036385}
-  - {fileID: -356435983458356202}
+  - {fileID: 123695006995471733}
+  - {fileID: -7789634225965995061}
   MinDistance: 0
   MaxDistance: 0
   Length: 0

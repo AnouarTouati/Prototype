@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
-
+using System.Collections;
 
 public class Motor : MonoBehaviourPunCallbacks
 {
@@ -59,6 +59,7 @@ public class Motor : MonoBehaviourPunCallbacks
     public bool Avoiding = false;
     public bool AIAccelerates = true;
     public bool AIBrakes = false;
+     bool AICarPoistionIsBeingReset = false;
     public float AvoidMultiplier = 0;
     public float AIAccelerationValue = 1;//between 0 and 1
     public float LookAheadAngle = 0;
@@ -155,27 +156,10 @@ public class Motor : MonoBehaviourPunCallbacks
 
                
                 
-                    if (Input.GetKeyDown(KeyCode.R)/* && (Mathf.Abs(transform.localEulerAngles.x) > 60 || Mathf.Abs(transform.localEulerAngles.z) > 60)*/)
+                    if (Input.GetKeyDown(KeyCode.R))
                     {
-                    ApplyTorque(0);
-                    Brake(0);
-                    GetComponent<Rigidbody>().velocity = Vector3.zero;
-                    GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-                    float MinDistance = 9999999999;
-                    int MinDistanceIndex = 0;
-                    for (int i = 0; i < RaceSystem.WayPoints.Length; i++)
-                    {
-                        if (Vector3.Distance(RaceSystem.WayPoints[i].transform.position, transform.position) < MinDistance)
-                        {
-                            MinDistance = Vector3.Distance(RaceSystem.WayPoints[i].transform.position, transform.position);
-                            MinDistanceIndex = i;
-                        }
+                    ResetCarPosition();
                     }
-
-                    transform.position = RaceSystem.WayPoints[MinDistanceIndex].transform.position+new Vector3(0, 3, 0);
-                    transform.eulerAngles = new Vector3(0, RaceSystem.WayPoints[MinDistanceIndex].transform.eulerAngles.y, 0);
-
-                }
 
                     UpdateCalculations();
                 
@@ -186,6 +170,15 @@ public class Motor : MonoBehaviourPunCallbacks
         }
         else if (AIDriving)
         {
+            if (RaceSystem.RaceStarted && !AICarPoistionIsBeingReset && !WheelColliders[0].isGrounded && !WheelColliders[1].isGrounded && !WheelColliders[2].isGrounded && !WheelColliders[3].isGrounded)
+            {
+                AICarPoistionIsBeingReset = true;
+                Debug.Log("reset car");
+                ResetCarPosition();
+                StartCoroutine("AICheckIfCarIsReset");
+            }
+            
+        
       
             UpdateCalculationsForAI();
         }
@@ -425,14 +418,14 @@ public class Motor : MonoBehaviourPunCallbacks
                     ApplyTorque(0);
                     Brake(0);
                 }
-
+               
                 Steer();
 #endif
 #if UNITY_ANDROID && !UNITY_EDITOR
 
 
                 if (AccelerationButtonPressed)
-                {
+                { 
                     if (WheelColliders[0].rpm < 0)
                     {
                         IsAcceleratingCommandBool = false;
@@ -454,7 +447,7 @@ public class Motor : MonoBehaviourPunCallbacks
                     }
                 }
                 else if (BrakingButtonPressed)
-                {
+                { 
                     if (WheelColliders[0].rpm > 0)
                     {
                         IsAcceleratingCommandBool = false;
@@ -478,7 +471,7 @@ public class Motor : MonoBehaviourPunCallbacks
                     }
                 }
                 else
-                {
+                { 
                     ApplyTorque(0);
                     Brake(0);
                 }
@@ -616,6 +609,39 @@ public class Motor : MonoBehaviourPunCallbacks
 
 
 
+    }
+    public void ResetCarPosition()
+    {
+        ApplyTorque(0);
+        Brake(0);
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        float MinDistance = 9999999999;
+        int MinDistanceIndex = 0;
+        for (int i = 0; i < RaceSystem.WayPoints.Length; i++)
+        {
+            if (Vector3.Distance(RaceSystem.WayPoints[i].transform.position, transform.position) < MinDistance)
+            {
+                MinDistance = Vector3.Distance(RaceSystem.WayPoints[i].transform.position, transform.position);
+                MinDistanceIndex = i;
+            }
+        }
+
+        transform.position = RaceSystem.WayPoints[MinDistanceIndex].transform.position + new Vector3(0, 3, 0);
+        transform.eulerAngles = new Vector3(0, RaceSystem.WayPoints[MinDistanceIndex].transform.eulerAngles.y, 0);
+    } 
+    IEnumerator AICheckIfCarIsReset()
+    {
+       
+        yield return new WaitForSeconds(3f);
+        if (WheelColliders[0].isGrounded && WheelColliders[1].isGrounded && WheelColliders[2].isGrounded && WheelColliders[3].isGrounded)
+        {
+            AICarPoistionIsBeingReset = false;
+        }
+        else
+        {
+            StartCoroutine("AICheckIfCarIsReset");
+        }
     }
     public float CalculateSpeed(float WheelRPM)
     {

@@ -21,6 +21,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1261481795071804, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1614319155292700, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
       propertyPath: m_Name
       value: Car1
@@ -69,6 +73,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 20362016956564942, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: m_Depth
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20959861922733578, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114553571873517578, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: WheelMeshes.Array.data[0]
+      value: 
+      objectReference: {fileID: 3269987497529807172}
+    - target: {fileID: 114553571873517578, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: WheelMeshes.Array.data[1]
+      value: 
+      objectReference: {fileID: 3269987497529807170}
+    - target: {fileID: 114553571873517578, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: WheelMeshes.Array.data[2]
+      value: 
+      objectReference: {fileID: 3269987497529807168}
+    - target: {fileID: 114553571873517578, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: WheelMeshes.Array.data[3]
+      value: 
+      objectReference: {fileID: 3269987497529807182}
     - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: WRPMtoERPMmultiplierByGears.Array.data[1]
@@ -133,7 +167,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Motor
       value: 
-      objectReference: {fileID: 190106488130304932}
+      objectReference: {fileID: 190106488130304955}
     - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: SaveGame
@@ -249,31 +283,6 @@ PrefabInstance:
       propertyPath: DefaultRimsColor.b
       value: 0.5566038
       objectReference: {fileID: 0}
-    - target: {fileID: 114553571873517578, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: WheelMeshes.Array.data[0]
-      value: 
-      objectReference: {fileID: 3269987497529807172}
-    - target: {fileID: 114553571873517578, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: WheelMeshes.Array.data[1]
-      value: 
-      objectReference: {fileID: 3269987497529807170}
-    - target: {fileID: 114553571873517578, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: WheelMeshes.Array.data[2]
-      value: 
-      objectReference: {fileID: 3269987497529807168}
-    - target: {fileID: 114553571873517578, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: WheelMeshes.Array.data[3]
-      value: 
-      objectReference: {fileID: 3269987497529807182}
-    - target: {fileID: 2911247918570226862, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: name
-      value: NissanGTR
-      objectReference: {fileID: 0}
     - target: {fileID: 146197869002115480, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: m_ForwardFriction.m_ExtremumSlip
@@ -313,11 +322,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ForwardFriction.m_ExtremumValue
       value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1278094437280724462, guid: dde43eef922d4c747a062f2ebe9ca5fa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1278094437280724459, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
@@ -334,19 +338,25 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1261481795071804, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
+    - target: {fileID: 1278094437280724462, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2911247918570226862, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: name
+      value: NissanGTR
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
---- !u!4 &190106488130304780 stripped
+--- !u!4 &190106488130304771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4183567983115838, guid: dde43eef922d4c747a062f2ebe9ca5fa,
     type: 3}
   m_PrefabInstance: {fileID: 190106488130304820}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &190106488130304932 stripped
+--- !u!114 &190106488130304955 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114553571873517578, guid: dde43eef922d4c747a062f2ebe9ca5fa,
     type: 3}
@@ -363,7 +373,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 190106488130304780}
+    m_TransformParent: {fileID: 190106488130304771}
     m_Modifications:
     - target: {fileID: 2072366472541838443, guid: 4653a71654f5fd44f92e66ca287e6582,
         type: 3}
