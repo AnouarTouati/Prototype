@@ -1,0 +1,35 @@
+1- ->select cube 
+   ->edit mode 
+   ->snap 3d cursor to bottom vertex
+   ->object mode 
+   ->right click set origin to 3d cursor
+   ->move cube to origin of xyz axis
+
+2- ->Enable snap absolute in position rotation and scale
+   ->edit mode
+   ->grab faces to scale the cube into rectangle 13 grid square length 8 width for example
+  *->object mode
+   ->add new mesh/shape 
+   ->edit mode   
+   ->modify it
+   -> repeat from * as neccessary make sure in object mode when adding new mesh
+
+3- ->object mode
+    ->selectall meshes
+    ->go object and join or ctr+j
+    ->now  that we have one big object add materials based on chosen textures these textures must be copied to unity
+    ->edit mode
+    ->select faces and apply appropriate materials
+    -> save go to unity
+    ->create new materials based on the textures copied earlier
+    ->grab the new materials and drop them in import settings of the object
+    ->hit apply
+    -> if textures are wrongly rotated then go to blender
+    -> edit mode hit a to select all
+    ->right click uv unwrap using smart project UV
+    ->go to UV Edting tab
+    ->select faces in view port(to the right) where texture must rotate
+    ->go UV map View(to the left) and rotate accordingly
+    -> save go back to unity
+done
+   

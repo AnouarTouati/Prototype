@@ -78,7 +78,7 @@ public class LobbyController : MonoBehaviourPunCallbacks
         if (IsTryingToConnect == false)
         {
           PhotonNetwork.OfflineMode= GameObject.Find("SaveGame").GetComponent<SaveGame>().OfflineMode;
-          
+         
             if (!IsConnected)
             {
                 IsTryingToConnect = true;

@@ -56,8 +56,8 @@ MonoBehaviour:
     BrakeUpgrade: 0
   j: 0
   AllCarsPrefabs:
-  - {fileID: 190106488130304292, guid: c6e650c9fd825354b8b48759724b5572, type: 3}
-  - {fileID: 4620123376039418103, guid: 524361269484ea3429b821c8435f35de, type: 3}
+  - {fileID: 191078495245226280, guid: c6e650c9fd825354b8b48759724b5572, type: 3}
+  - {fileID: 4618517892185518331, guid: 524361269484ea3429b821c8435f35de, type: 3}
   ProfileName: 
   CarSelectionMenuScript: {fileID: 0}
   MainMenuScript: {fileID: 0}

@@ -170,7 +170,7 @@ public class Motor : MonoBehaviourPunCallbacks
         }
         else if (AIDriving)
         {
-            if (RaceSystem.RaceStarted && !AICarPoistionIsBeingReset && !WheelColliders[0].isGrounded && !WheelColliders[1].isGrounded && !WheelColliders[2].isGrounded && !WheelColliders[3].isGrounded)
+            if (RaceSystem.RaceStarted && !GamePlayScore.FinishedTheRace &&  !AICarPoistionIsBeingReset && !WheelColliders[0].isGrounded && !WheelColliders[1].isGrounded && !WheelColliders[2].isGrounded && !WheelColliders[3].isGrounded)
             {
                 AICarPoistionIsBeingReset = true;
                 Debug.Log("reset car");
@@ -274,7 +274,7 @@ public class Motor : MonoBehaviourPunCallbacks
                         CurveEntryPoint = RaceSystem.WayPoints[i].position;
                         CurveEntryPointVector = RaceSystem.WayPoints[i + 1].position - RaceSystem.WayPoints[i].position;
                     }
-                    else if (CurveEntryPoint != Vector3.zero && Mathf.Abs(CheckVector.x) < 3 && Mathf.Abs(CheckVector.z) < 3)
+                    else if (CurveEntryPoint != Vector3.zero && Mathf.Abs(CheckVector.x) < ExitPointCriteria && Mathf.Abs(CheckVector.z) < ExitPointCriteria)
                     {
 
                         CurveExitPoint = RaceSystem.WayPoints[i].position;
@@ -612,6 +612,7 @@ public class Motor : MonoBehaviourPunCallbacks
     }
     public void ResetCarPosition()
     {
+        //adjust the waypoints in scene so that the Z axis points forward
         ApplyTorque(0);
         Brake(0);
         GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -626,9 +627,13 @@ public class Motor : MonoBehaviourPunCallbacks
                 MinDistanceIndex = i;
             }
         }
-
+        MinDistanceIndex--;//so that the ResetAngle is correct since we dont know if mindistance WayPoint is ahead/behind of us
+        Vector2 FirstPoint = new Vector2(RaceSystem.WayPoints[MinDistanceIndex].transform.position.x, RaceSystem.WayPoints[MinDistanceIndex].transform.position.z);
+        Vector2 SecondPoint= new Vector2(RaceSystem.WayPoints[MinDistanceIndex+1].transform.position.x, RaceSystem.WayPoints[MinDistanceIndex+1].transform.position.z);
+        float ResetAngle= Vector2.SignedAngle(FirstPoint,SecondPoint);
         transform.position = RaceSystem.WayPoints[MinDistanceIndex].transform.position + new Vector3(0, 3, 0);
-        transform.eulerAngles = new Vector3(0, RaceSystem.WayPoints[MinDistanceIndex].transform.eulerAngles.y, 0);
+        transform.localEulerAngles = new Vector3(0, ResetAngle, 0);
+        
     } 
     IEnumerator AICheckIfCarIsReset()
     {
@@ -720,13 +725,13 @@ public class Motor : MonoBehaviourPunCallbacks
         if (AIDriving)
         {
 
-
+/*  //should be used in circuits
             if (CurrentWayPointIndex > RaceSystem.WayPoints.Length - 5)
             {
                 CurrentWayPointIndex = 1;
                 LastLookAheadAnglePositionInWayPoints = -1;
             }
-
+*/
             for (int i = CurrentWayPointIndex; i < CurrentWayPointIndex + 4; i++)
             {
                 if (i < RaceSystem.WayPoints.Length)
@@ -741,7 +746,7 @@ public class Motor : MonoBehaviourPunCallbacks
 
 
             Vector3 relativeVector = Vector3.zero;
-            if (RaceSystem.WayPoints.Length != 0)
+            if (RaceSystem.WayPoints.Length != 0 && CurrentWayPointIndex<RaceSystem.WayPoints.Length)
             {
                 if (Vector3.Distance(transform.position, RaceSystem.WayPoints[CurrentWayPointIndex].position) < 10 || (Vector3.Distance(transform.position, RaceSystem.WayPoints[CurrentWayPointIndex].position) < 30 && Avoiding))
                 {
@@ -757,7 +762,7 @@ public class Motor : MonoBehaviourPunCallbacks
                 WheelColliders[0].steerAngle = AvoidMultiplier * 25;
                 WheelColliders[1].steerAngle = AvoidMultiplier * 25;
             }
-            else if (RaceSystem.WayPoints.Length != 0)
+            else if (RaceSystem.WayPoints.Length != 0 && CurrentWayPointIndex<RaceSystem.WayPoints.Length)
             {
 
 

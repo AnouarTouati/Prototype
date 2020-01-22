@@ -1,0 +1,1 @@
+EntryPointCriteria must equal 4 and ExitPoint must equal 3 other game lags

@@ -23,7 +23,7 @@ public class AICarSpawner : MonoBehaviour
             if(PhotonNetwork.OfflineMode){
                 if(GameObject.FindGameObjectWithTag("LocalPlayerPlaceHolder")){
                     OnlinePlayerManager localOnlinePlayerManager=GameObject.FindGameObjectWithTag("LocalPlayerPlaceHolder").GetComponent<OnlinePlayerManager>();
-                    GameObject AICar =  PhotonNetwork.Instantiate("Car1", RoomController.StartPosition[RoomController.CurrentStartPositionIndex].position, RoomController.StartPosition[RoomController.CurrentStartPositionIndex].rotation);
+                    GameObject AICar =  PhotonNetwork.Instantiate("Car"+Random.Range(1,3), RoomController.StartPosition[RoomController.CurrentStartPositionIndex].position, RoomController.StartPosition[RoomController.CurrentStartPositionIndex].rotation);
                     AICar.GetComponent<Motor>().AIDriving=true;
                     AICars.Add(AICar);
                     localOnlinePlayerManager.IncrementCurrentStartPositionIndex();

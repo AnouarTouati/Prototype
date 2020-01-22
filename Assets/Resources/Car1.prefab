@@ -43,19 +43,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4183567983115838, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4183567983115838, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.87029755
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4183567983115838, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4183567983115838, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.49252635
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4183567983115838, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
       propertyPath: m_RootOrder
@@ -67,7 +67,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4183567983115838, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -120.98601
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4183567983115838, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -347,6 +347,21 @@ PrefabInstance:
         type: 3}
       propertyPath: name
       value: NissanGTR
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818897542299047069, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588757135541183523, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322310997727655030, guid: dde43eef922d4c747a062f2ebe9ca5fa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}

@@ -117,7 +117,7 @@ public class CarVisualSync : MonoBehaviourPunCallbacks,IPunObservable {
         {
             if (SceneManager.GetActiveScene().name == "MainMenu")
             {
-                if (!GameObject.Find("BuyCarGUI"))
+                if (!GameObject.Find("BuyCarGUI") )
                 {
                     GetColorsFromSaveGame();
                     CheckForColorChange();
@@ -139,7 +139,11 @@ public class CarVisualSync : MonoBehaviourPunCallbacks,IPunObservable {
            
            else
             {
-                if (PV.IsMine)
+                if (GetComponent<Transform>().tag.Equals("AIDriving")) { //&& transform.tag=="AIDriving" is to detect in offline mode and not apply the same colors as Player pref
+                    ///this block my break online syncing i didnt test it yet
+                    ApplyDefaultColors();
+                }
+                  else  if (PV.IsMine)
                 {
                     GetColorsFromSaveGame();
                     CheckForColorChange();
