@@ -19,7 +19,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 4620123376039418576}
+    m_TransformParent: {fileID: 4617075093020353753}
     m_Modifications:
     - target: {fileID: 3432609874202191318, guid: 5a3f862bdb3698b479bd1456249ccadb,
         type: 3}
@@ -366,7 +366,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Motor
       value: 
-      objectReference: {fileID: 4620123376039418472}
+      objectReference: {fileID: 4722869075402500845}
     - target: {fileID: 114748753493292274, guid: dde43eef922d4c747a062f2ebe9ca5fa,
         type: 3}
       propertyPath: SaveGame
@@ -544,13 +544,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dde43eef922d4c747a062f2ebe9ca5fa, type: 3}
---- !u!4 &4620123376039418576 stripped
+--- !u!4 &4617075093020353753 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4183567983115838, guid: dde43eef922d4c747a062f2ebe9ca5fa,
     type: 3}
   m_PrefabInstance: {fileID: 4620123376039418599}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4620123376039418472 stripped
+--- !u!114 &4722869075402500845 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114553571873517578, guid: dde43eef922d4c747a062f2ebe9ca5fa,
     type: 3}

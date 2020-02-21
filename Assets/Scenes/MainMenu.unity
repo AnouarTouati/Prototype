@@ -6818,6 +6818,18 @@ PrefabInstance:
       propertyPath: MainMenuScript
       value: 
       objectReference: {fileID: 1511028638}
+    - target: {fileID: 4609497967677833906, guid: ad3c7b3d116890043a585e21cf04f09a,
+        type: 3}
+      propertyPath: AllCarsPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 191078495245226280, guid: c6e650c9fd825354b8b48759724b5572,
+        type: 3}
+    - target: {fileID: 4609497967677833906, guid: ad3c7b3d116890043a585e21cf04f09a,
+        type: 3}
+      propertyPath: AllCarsPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 4618517892185518331, guid: 524361269484ea3429b821c8435f35de,
+        type: 3}
     - target: {fileID: 4609497967677833907, guid: ad3c7b3d116890043a585e21cf04f09a,
         type: 3}
       propertyPath: m_Name
