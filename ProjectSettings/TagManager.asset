@@ -3,17 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - GUI
-  - OtherPlayer
-  - MiniMapCamera
-  - Terrain
-  - Obstacle
-  - AIDriving
-  - PickableItem
-  - LocalPlayerPlaceHolder
-  - OtherPlayerPlaceHolder
-  - UserCreatedDontDestroyOnLoad
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -23,13 +13,13 @@ TagManager:
   - UI
   - 
   - 
-  - LocalCar
-  - OtherCars
-  - EasyRoads
-  - MiniMap
-  - Roads
-  - Cars (for lighting)
-  - PostProcessing
+  - Car
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
