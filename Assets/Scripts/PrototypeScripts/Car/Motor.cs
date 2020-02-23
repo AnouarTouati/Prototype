@@ -5,11 +5,17 @@ using System.Collections;
 
 public class Motor : MonoBehaviourPunCallbacks
 {
-
+    float percentageToUseFromTorqueAccelerating = 0f;
+    float percentageToUseFromTorqueBraking = 0f;
     public WheelCollider[] WheelColliders;
     public GameObject[] WheelMeshes;
-    
-   
+    [Tooltip("The vehicle's speed when the physics engine can use different amount of sub-steps (in m/s).")]
+    public float criticalSpeed = 5f;
+    [Tooltip("Simulation sub-steps when the speed is above critical.")]
+    public int stepsBelow = 5;
+    [Tooltip("Simulation sub-steps when the speed is below critical.")]
+    public int stepsAbove = 1;
+
     public float Percentage;
 
     private float WheelRPM;
@@ -31,7 +37,7 @@ public class Motor : MonoBehaviourPunCallbacks
      public bool IsBraking = false;*/
     public bool AccelerationButtonPressed = false;
     public bool BrakingButtonPressed = false;
-
+    private GraphOverlay graphOverlay;
 
 
 
@@ -88,7 +94,7 @@ public class Motor : MonoBehaviourPunCallbacks
 
     void Start()
     {
-
+       
         GamePlayScore = GetComponent<GamePlayScore>();
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
@@ -96,6 +102,7 @@ public class Motor : MonoBehaviourPunCallbacks
         }
         else
         {
+            graphOverlay = GameObject.Find("GraphicOverlay").GetComponent<GraphOverlay>();
             if (photonView.IsMine || AIDriving)
             {
 
@@ -146,7 +153,8 @@ public class Motor : MonoBehaviourPunCallbacks
 
     void  Update()
     {
-      
+        WheelColliders[0].ConfigureVehicleSubsteps(criticalSpeed, stepsBelow, stepsAbove);
+
         if (!AIDriving)
         {
             if (SceneManager.GetActiveScene().name != "MainMenu" && photonView.IsMine)
@@ -189,7 +197,7 @@ public class Motor : MonoBehaviourPunCallbacks
     
     void UpdateCalculationsForAI()
     {
-
+    
         Sensor();
         AIAccelerationBrakingSystem();
         if (RaceSystem == null)
@@ -206,17 +214,35 @@ public class Motor : MonoBehaviourPunCallbacks
                 if (AIAccelerates)
                 {
 
-                    if (Gears < 1)
+                    if (WheelColliders[0].rpm < 0)
                     {
-                        SwitchGears(1);
-                    }
+                        IsAcceleratingCommandBool = false;
+                        IsBrakingCommanBool = true;
+                        Brakes();
 
-                    Accelerates(/*AIAccelerationValue*/);
+                    }
+                    else
+                    {
+                        IsAcceleratingCommandBool = true;
+                        IsBrakingCommanBool = false;
+
+                        if (Gears < 1)
+                        {
+                            SwitchGears(1);
+                        }
+
+                        Accelerates();
+
+
+                    }
                 }
+
                 else if (AIBrakes)
                 {
                     if (WheelColliders[0].rpm > 0)
                     {
+                        IsAcceleratingCommandBool = false;
+                        IsBrakingCommanBool = true;
                         Brakes();
                     }
                     else
@@ -225,7 +251,10 @@ public class Motor : MonoBehaviourPunCallbacks
                         {
                             SwitchGears(-1);
                         }
+
                         Accelerates(/*AIAccelerationValue*/);
+                        IsAcceleratingCommandBool = true;
+                        IsBrakingCommanBool = false;
                     }
                 }
                 else
@@ -536,7 +565,7 @@ public class Motor : MonoBehaviourPunCallbacks
         switch (Gears)
         {
             case -1:
-                AppliedTorque = -Perfermance.ReverseWRPMtoERPMmultiplier * Torque;
+                AppliedTorque = -Perfermance.ReverseWRPMtoERPMmultiplier * (Torque/10);
                 WheelRPMtoEngineRPMmultiplier = Perfermance.ReverseWRPMtoERPMmultiplier;
                 break;
             case 0:
@@ -672,34 +701,66 @@ public class Motor : MonoBehaviourPunCallbacks
     }
     public void ApplyTorque(float a)
     {
-       // if (Gears != 0)//used to prevent weird behaviour when switching from gear -1 to gear 0 
-      //  {
-           
+        /*
 
-            if (Perfermance.RearWheelDrive)
+        if (Gears != -1)
+        {
+            if (IsAcceleratingCommandBool)
             {
-                WheelColliders[2].motorTorque = a;
-                WheelColliders[3].motorTorque = a;
-            }else if (Perfermance.AllWheelDrive)
-            {
-                WheelColliders[0].motorTorque = a;
-                WheelColliders[1].motorTorque = a;
-                WheelColliders[2].motorTorque = a;
-                WheelColliders[3].motorTorque = a;
-            }else if (Perfermance.FrontWheelDrive)
-            {
-                WheelColliders[0].motorTorque = a;
-                WheelColliders[1].motorTorque = a;
+
+                if (graphOverlay.longData >= 0.3 || graphOverlay.latData >= 0.3 || graphOverlay.latData <= -0.3)
+                {
+                    percentageToUseFromTorqueAccelerating -= 0.01f;
+                }
+                else
+                {
+                    percentageToUseFromTorqueAccelerating += 0.01f;
+                }
             }
-      
+            else { percentageToUseFromTorqueAccelerating = 0; }
+        }
+        else
+        {
+            if (IsAcceleratingCommandBool)
+            {
 
-        //   }
+                if (graphOverlay.longData <= -0.3)
+                {
+                    percentageToUseFromTorqueAccelerating -= 0.01f;
+                }
+                else
+                {
+                    percentageToUseFromTorqueAccelerating += 0.01f;
+                }
+            }
+            else { percentageToUseFromTorqueAccelerating = 0; }
+        }
+           
+           percentageToUseFromTorqueAccelerating= Mathf.Clamp(percentageToUseFromTorqueAccelerating, 0, 1);
+           */
+        percentageToUseFromTorqueAccelerating = 1;
+            foreach (WheelCollider wheel in WheelColliders)
+            {
+         
+                if (wheel.transform.localPosition.z < 0 && Perfermance.FrontWheelDrive != true)
+                {
+                    wheel.motorTorque = a * percentageToUseFromTorqueAccelerating;
+                }
+
+                if (wheel.transform.localPosition.z >= 0 && Perfermance.RearWheelDrive != true)
+                {
+                    wheel.motorTorque = a *percentageToUseFromTorqueAccelerating;
+                }
+            }
+
+
+
 
     }
     public void Accelerates()
     {
-        //   Value= Mathf.Clamp(Value, 0, 1);
-        ApplyTorque(AppliedTorque /* *Value */);
+      
+        ApplyTorque(AppliedTorque);
         Brake(0);
     }
     public void Brakes()
@@ -709,11 +770,29 @@ public class Motor : MonoBehaviourPunCallbacks
     }
     public void Brake(int a)
     {
-       
-        WheelColliders[0].brakeTorque = a;
-        WheelColliders[1].brakeTorque = a;
-        WheelColliders[2].brakeTorque = a;
-        WheelColliders[3].brakeTorque = a;
+        /*
+        if (IsBrakingCommanBool)
+        {
+            if (graphOverlay.longData <= -0.1)
+            {
+                percentageToUseFromTorqueBraking -= 0.01f;
+            }
+            else 
+            {
+                percentageToUseFromTorqueBraking += 0.01f;
+            }
+        }
+        else { percentageToUseFromTorqueBraking = 0; }
+
+        percentageToUseFromTorqueBraking = Mathf.Clamp(percentageToUseFromTorqueBraking, 0, 1);
+        */
+        percentageToUseFromTorqueBraking = 1;
+        foreach (WheelCollider wheel in WheelColliders)
+        {
+                wheel.brakeTorque = a * percentageToUseFromTorqueBraking;
+           
+
+        }
 
     }
     private void RotateTheWheelMeshes()
@@ -777,8 +856,9 @@ public class Motor : MonoBehaviourPunCallbacks
             {
 
 
-                WheelColliders[0].steerAngle = AvoidMultiplier * 25;
-                WheelColliders[1].steerAngle = AvoidMultiplier * 25;
+                //   WheelColliders[0].steerAngle = AvoidMultiplier * 25;
+                //   WheelColliders[1].steerAngle = AvoidMultiplier * 25;
+                ApplySteeringAngle(AvoidMultiplier * 25);
             }
             else if (RaceSystem.WayPoints.Length != 0 && CurrentWayPointIndex<RaceSystem.WayPoints.Length)
             {
@@ -787,9 +867,9 @@ public class Motor : MonoBehaviourPunCallbacks
                 relativeVector = transform.InverseTransformPoint(RaceSystem.WayPoints[CurrentWayPointIndex].position);
                 relativeVector = relativeVector / relativeVector.magnitude;
 
-                WheelColliders[0].steerAngle = relativeVector.x * 25;
-                WheelColliders[1].steerAngle = relativeVector.x * 25;
-
+                //   WheelColliders[0].steerAngle = relativeVector.x * 25;
+                //   WheelColliders[1].steerAngle = relativeVector.x * 25;
+                ApplySteeringAngle(relativeVector.x * 25);
             }
 
 
@@ -801,27 +881,28 @@ public class Motor : MonoBehaviourPunCallbacks
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
             if (Input.GetAxis("Horizontal") != 0)
             {
-                float SteerAngle = (Perfermance.ZeroSpeedSteerAngle - Mathf.Clamp((Speed / Perfermance.MaxSpeedToEachGear[Perfermance.MaxSpeedToEachGear.Length - 1] * Perfermance.ZeroSpeedSteerAngle), 0, Perfermance.ZeroSpeedSteerAngle));
-                SteerAngle = Mathf.Clamp(SteerAngle, Perfermance.MaxSpeedSteerAngle, Perfermance.ZeroSpeedSteerAngle);
-                WheelColliders[0].steerAngle = Input.GetAxis("Horizontal") * SteerAngle;
-                WheelColliders[1].steerAngle = Input.GetAxis("Horizontal") * SteerAngle;
-
+           //     float SteerAngle = (Perfermance.ZeroSpeedSteerAngle - Mathf.Clamp((Speed / Perfermance.MaxSpeedToEachGear[Perfermance.MaxSpeedToEachGear.Length - 1] * Perfermance.ZeroSpeedSteerAngle), 0, Perfermance.ZeroSpeedSteerAngle));
+           //     SteerAngle = Mathf.Clamp(SteerAngle, Perfermance.MaxSpeedSteerAngle, Perfermance.ZeroSpeedSteerAngle);
+                //  WheelColliders[0].steerAngle = Input.GetAxis("Horizontal") * SteerAngle;
+                //   WheelColliders[1].steerAngle = Input.GetAxis("Horizontal") * SteerAngle;
+                ApplySteeringAngle(Input.GetAxis("Horizontal") * 30);
 
             }
             else
             {
                 // we should smooth the transition to zero angle
-                WheelColliders[0].steerAngle = 0;
-                WheelColliders[1].steerAngle = 0;
+                //  WheelColliders[0].steerAngle = 0;
+                //  WheelColliders[1].steerAngle = 0;
+                ApplySteeringAngle(0);
             }
 #endif
 #if UNITY_ANDROID && !UNITY_EDITOR
             if (Input.acceleration.x != 0)
             {
-           float SteerAngle= (Perfermance.ZeroSpeedSteerAngle - Mathf.Clamp((Speed / Perfermance.MaxSpeedToEachGear[Perfermance.MaxSpeedToEachGear.Length-1] * Perfermance.ZeroSpeedSteerAngle), 0, Perfermance.ZeroSpeedSteerAngle));
-                SteerAngle = Mathf.Clamp(SteerAngle, Perfermance.MaxSpeedSteerAngle, Perfermance.ZeroSpeedSteerAngle);
-               WheelColliders[0].steerAngle=Input.acceleration.x*SteerAngle;
-            WheelColliders[1].steerAngle=Input.acceleration.x*SteerAngle;
+         //  float SteerAngle= (Perfermance.ZeroSpeedSteerAngle - Mathf.Clamp((Speed / Perfermance.MaxSpeedToEachGear[Perfermance.MaxSpeedToEachGear.Length-1] * Perfermance.ZeroSpeedSteerAngle), 0, Perfermance.ZeroSpeedSteerAngle));
+         //       SteerAngle = Mathf.Clamp(SteerAngle, Perfermance.MaxSpeedSteerAngle, Perfermance.ZeroSpeedSteerAngle);
+               WheelColliders[0].steerAngle=Input.acceleration.x*30;
+            WheelColliders[1].steerAngle=Input.acceleration.x*30;
           
             
             }
@@ -838,6 +919,16 @@ public class Motor : MonoBehaviourPunCallbacks
 
 
 
+    }
+    void ApplySteeringAngle(float steeringAngle) 
+    {
+        foreach (WheelCollider wheel in WheelColliders)
+        {
+            if (wheel.transform.localPosition.z > 0)
+                wheel.steerAngle = steeringAngle;
+
+            
+        }
     }
     public void Sensor()
     {

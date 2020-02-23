@@ -57,7 +57,7 @@ public class Perfermance : MonoBehaviour {
     void OnDrawGizmos()
     {
 
-      //  CalculateGearRatios();
+        CalculateGearRatios();
       
     }
 

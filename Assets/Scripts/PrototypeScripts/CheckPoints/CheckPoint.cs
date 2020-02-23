@@ -38,27 +38,43 @@ public class CheckPoint : MonoBehaviourPunCallbacks,IPunObservable {
     }
     void OnTriggerEnter(Collider info)
     {
-      
-     
-           
-            if (info.tag == "Player" || info.tag == "OtherPlayer" || info.tag=="AIDriving")
+        if (info.gameObject != null)
+        {
+            refrenceCarForCollision tagSyncParentChild = info.gameObject.GetComponent<refrenceCarForCollision>();
+            if (tagSyncParentChild != null)
             {
-                
-                if (MyIndex == info.GetComponent<GamePlayScore>().NumberOfCheckPointsICrossed)
+                GameObject carGameObject = info.gameObject.GetComponent<refrenceCarForCollision>().carGameObject;
+                if (carGameObject != null)
                 {
-                    
-                    info.GetComponent<GamePlayScore>().NumberOfCheckPointsICrossed++;
-                    if (AmITheFinalCheckPoint==true)
+                    Transform carTransform = carGameObject.GetComponent<Transform>();
+                    if (carTransform != null)
                     {
-                        info.GetComponent<GamePlayScore>().FinishedTheRace = true;
-                    }
-                  //  RPC_DisableMySelf(info.transform.name);
-                    PV.RPC("RPC_DisableMySelf", RpcTarget.All, info.transform.name);
-                   
-                }
-            
+                        if (carTransform.tag == "Player" || carTransform.tag == "OtherPlayer" || carTransform.tag == "AIDriving")
+                        {
 
+                            if (MyIndex == carGameObject.GetComponent<GamePlayScore>().NumberOfCheckPointsICrossed)
+                            {
+
+                                carGameObject.GetComponent<GamePlayScore>().NumberOfCheckPointsICrossed++;
+                                if (AmITheFinalCheckPoint == true)
+                                {
+                                    carGameObject.GetComponent<GamePlayScore>().FinishedTheRace = true;
+                                }
+                                //  RPC_DisableMySelf(info.transform.name);
+                                PV.RPC("RPC_DisableMySelf", RpcTarget.All, carTransform.name);
+
+                            }
+
+
+                        }
+                    }
+                    
+                }
+              
+            }
         }
+          
+       
 
     }
     [PunRPC]

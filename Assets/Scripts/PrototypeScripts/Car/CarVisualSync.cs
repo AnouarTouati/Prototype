@@ -174,39 +174,58 @@ public class CarVisualSync : MonoBehaviourPunCallbacks,IPunObservable {
         ColorChangedSendDataAndApplyColors = false;
         for (int i = 0; i < 4; i++)
         {
-            if (BodyArrayColor[i] != Body.material.color[i])
+            if (Body != null)
             {
-                ColorChangedSendDataAndApplyColors = true;
-               
-                
+                if (BodyArrayColor[i] != Body.material.color[i])
+                {
+                    ColorChangedSendDataAndApplyColors = true;
+
+
+                }
+            }
+          
+            
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            if (SideViewMirrors != null)
+            {
+                if (SideViewMirrosArrayColor[i] != SideViewMirrors.material.color[i])
+                {
+                    ColorChangedSendDataAndApplyColors = true;
+
+
+                }
+            }
+           
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            if (Hood != null)
+            {
+                if (HoodArrayColor[i] != Hood.material.color[i])
+                {
+                    ColorChangedSendDataAndApplyColors = true;
+
+                }
             }
             
         }
         for (int i = 0; i < 4; i++)
         {
-            if (SideViewMirrosArrayColor[i] != SideViewMirrors.material.color[i])
+            if (Rims != null)
             {
-                ColorChangedSendDataAndApplyColors = true;
-               
+                if (Rims[i] != null)
+                {
+                    if (RimsArrayColor[i] != Rims[0].material.color[i])
+                    {
+                        ColorChangedSendDataAndApplyColors = true;
 
-            }
-        }
-        for (int i = 0; i < 4; i++)
-        {
-            if (HoodArrayColor[i] != Hood.material.color[i])
-            {
-                ColorChangedSendDataAndApplyColors = true;
-               
-            }
-        }
-        for (int i = 0; i < 4; i++)
-        {
-            if (RimsArrayColor[i] != Rims[0].material.color[i])
-            {
-                ColorChangedSendDataAndApplyColors = true;
-                
 
+                    }
+                }
             }
+            
         }
         
     }
@@ -238,7 +257,11 @@ public class CarVisualSync : MonoBehaviourPunCallbacks,IPunObservable {
         if (Rims != null)
         for (int i = 0; i < Rims.Length; i++)
         {
-            Rims[i].material.color = RimsColor;
+                if (Rims[i] != null)
+                {
+                    Rims[i].material.color = RimsColor;
+                }
+           
         }
     }
 
@@ -252,9 +275,17 @@ public class CarVisualSync : MonoBehaviourPunCallbacks,IPunObservable {
         if (Hood != null)
             Hood.material.color = DefaultHoodColor;
         if (Rims != null)
+        {
             for (int i = 0; i < Rims.Length; i++)
             {
-                Rims[i].material.color = DefaultRimsColor;
+                if (Rims[i] != null)
+                {
+                    Rims[i].material.color = DefaultRimsColor;
+                }
+                    
             }
+        }
+           
+            
     }
 }
