@@ -16378,7 +16378,7 @@ MonoBehaviour:
   CarSelectioMenuScript: {fileID: 1941671005}
   BuyCarMenuScript: {fileID: 897894603}
   SaveGame: {fileID: 1613875474}
-  LobbyController: {fileID: 0}
+  LobbyController: {fileID: 550231753}
 --- !u!224 &1511028639
 RectTransform:
   m_ObjectHideFlags: 0

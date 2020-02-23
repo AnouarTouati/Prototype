@@ -8,7 +8,8 @@ public class Motor : MonoBehaviourPunCallbacks
 
     public WheelCollider[] WheelColliders;
     public GameObject[] WheelMeshes;
-
+    
+   
     public float Percentage;
 
     private float WheelRPM;
@@ -138,9 +139,6 @@ public class Motor : MonoBehaviourPunCallbacks
 
 
 
-
-
-
         //  ApplyChanges();
 
     }
@@ -173,7 +171,7 @@ public class Motor : MonoBehaviourPunCallbacks
             if (RaceSystem.RaceStarted && !GamePlayScore.FinishedTheRace &&  !AICarPoistionIsBeingReset && !WheelColliders[0].isGrounded && !WheelColliders[1].isGrounded && !WheelColliders[2].isGrounded && !WheelColliders[3].isGrounded)
             {
                 AICarPoistionIsBeingReset = true;
-                Debug.Log("reset car");
+            //    Debug.Log("reset car");
                 ResetCarPosition();
                 StartCoroutine("AICheckIfCarIsReset");
             }
@@ -281,9 +279,9 @@ public class Motor : MonoBehaviourPunCallbacks
                         CurveExitPointVector = RaceSystem.WayPoints[i + 1].position - RaceSystem.WayPoints[i].position;
                         LastLookAheadAnglePositionInWayPoints = i + 2;
                         FoundACurve = true;
-                        Debug.DrawRay(CurveEntryPoint, CurveEntryPointVector * 10, Color.red, 50, false);
+                //        Debug.DrawRay(CurveEntryPoint, CurveEntryPointVector * 10, Color.red, 50, false);
 
-                        Debug.DrawRay(CurveExitPoint, CurveExitPointVector * 10, Color.green, 50, false);
+                 //       Debug.DrawRay(CurveExitPoint, CurveExitPointVector * 10, Color.green, 50, false);
                         break;
                     }
 
@@ -584,14 +582,14 @@ public class Motor : MonoBehaviourPunCallbacks
         {
             if (Gears + 1 < Perfermance.WRPMtoERPMmultiplierByGears.Length)
             {
-                if (WheelRPM * Mathf.Abs(Perfermance.WRPMtoERPMmultiplierByGears[Gears + 1]) > Perfermance.GearUpRPMNextGear && Speed > 0)
+                if (WheelRPM * Mathf.Abs(Perfermance.WRPMtoERPMmultiplierByGears[Gears + 1]) > Perfermance.GearUpRPMNextGear[Gears] && Speed > 0)
                 {
 
                     SwitchGears(1);
 
                 }
                 else
-        if (Gears >= 2 && WheelRPM * Mathf.Abs(Perfermance.WRPMtoERPMmultiplierByGears[Gears - 1]) < Perfermance.GearDownRPMpreviousGear)
+        if (Gears >= 2 && WheelRPM * Mathf.Abs(Perfermance.WRPMtoERPMmultiplierByGears[Gears - 1]) < Perfermance.GearDownRPMpreviousGear[Gears])
                 {
 
                     SwitchGears(-1);
@@ -599,7 +597,7 @@ public class Motor : MonoBehaviourPunCallbacks
 
             }
             else
-             if (Gears >= 2 && WheelRPM * Perfermance.WRPMtoERPMmultiplierByGears[Gears - 1] < Perfermance.GearDownRPMpreviousGear)
+             if (Gears >= 2 && WheelRPM * Perfermance.WRPMtoERPMmultiplierByGears[Gears - 1] < Perfermance.GearDownRPMpreviousGear[Gears])
             {
 
                 SwitchGears(-1);
@@ -628,13 +626,32 @@ public class Motor : MonoBehaviourPunCallbacks
             }
         }
         MinDistanceIndex--;//so that the ResetAngle is correct since we dont know if mindistance WayPoint is ahead/behind of us
+        
         Vector2 FirstPoint = new Vector2(RaceSystem.WayPoints[MinDistanceIndex].transform.position.x, RaceSystem.WayPoints[MinDistanceIndex].transform.position.z);
         Vector2 SecondPoint= new Vector2(RaceSystem.WayPoints[MinDistanceIndex+1].transform.position.x, RaceSystem.WayPoints[MinDistanceIndex+1].transform.position.z);
-        float ResetAngle= Vector2.SignedAngle(FirstPoint,SecondPoint);
-        transform.position = RaceSystem.WayPoints[MinDistanceIndex].transform.position + new Vector3(0, 3, 0);
-        transform.localEulerAngles = new Vector3(0, ResetAngle, 0);
+        Vector2 desiredDirectionVector = SecondPoint-FirstPoint;
+        desiredDirectionVector = desiredDirectionVector.normalized;
         
-    } 
+       
+
+        
+    //    Debug.DrawRay(transform.position, new Vector3(desiredDirectionVector.x,0, desiredDirectionVector.y), Color.red,50,false);
+      //  Debug.DrawRay(transform.position, transform.forward, Color.blue, 50, false);
+        float ResetAngle = Vector2.SignedAngle(transform.forward,desiredDirectionVector);
+     /*   Debug.Log("Chosen Way Point Index" + MinDistanceIndex);
+        Debug.Log("Chosen Way Point Index+1 " + MinDistanceIndex+1);
+        Debug.Log("Y angle before reset" + transform.eulerAngles.y);
+        Debug.Log("The Reset Angle " + ResetAngle);
+        Debug.Log(transform.forward);
+        Debug.Log(desiredDirectionVector);*/
+        transform.position = RaceSystem.WayPoints[MinDistanceIndex].transform.position + new Vector3(0, 3, 0);
+
+        Quaternion rotation = Quaternion.AngleAxis(-ResetAngle, Vector3.up);
+        transform.rotation *= rotation;
+        transform.eulerAngles = new Vector3(0, transform.rotation.eulerAngles.y, 0);
+
+    }
+   
     IEnumerator AICheckIfCarIsReset()
     {
        
@@ -650,7 +667,8 @@ public class Motor : MonoBehaviourPunCallbacks
     }
     public float CalculateSpeed(float WheelRPM)
     {
-        return Mathf.RoundToInt(WheelRPM * (WheelColliders[0].radius * 2 * 100) * 0.001885f);//https://www.easycalculation.com/unit-conversion/rpm-conversion.php look the formula in website
+      return  Mathf.RoundToInt(WheelRPM * 2 * Mathf.PI * WheelColliders[0].radius * 0.001f *60);
+       
     }
     public void ApplyTorque(float a)
     {

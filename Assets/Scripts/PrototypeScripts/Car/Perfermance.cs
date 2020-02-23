@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Perfermance : MonoBehaviour {
 
-   
+
     public Motor Motor;
     [Range(0, 3000)]
     public int BrakingTorque;
@@ -11,18 +11,23 @@ public class Perfermance : MonoBehaviour {
     public float OriginalMaxTorque;
 
     public float ModifiableMaxTorqueByItems;
-    public bool AllWheelDrive=false;
+    public bool AllWheelDrive = false;
     public bool RearWheelDrive = true;
     public bool FrontWheelDrive = false;
     // public int MaxGears;
     // public float EngineTorqueAtMinEngineRPM;
     //  public float MinEngineTorque;
     // public float RPMatMinEngineTorque;
+    [Range(1200,9200)]
     public float MaxEngineRPM;
+    [Range(1200, 9200)]
     public float MinEngineRPM;
-    public float GearUpRPMNextGear;
-    public float GearUpRPMThisGear;
-    public float GearDownRPMpreviousGear;
+    [Range(1200, 9200)]
+    public float[] GearUpRPMNextGear;
+    [Range(1200, 9200)]
+    public float[] GearUpRPMThisGear;
+    [Range(1200, 9200)]
+    public float[] GearDownRPMpreviousGear;
 
     [Header("Max Upgrade Section")]
     [Range(0,3)]
@@ -56,12 +61,13 @@ public class Perfermance : MonoBehaviour {
       
     }
 
+   
     void CalculateGearRatios()
     {
 
         for (int i = 1; i < WRPMtoERPMmultiplierByGears.Length - 1; i++)
         {
-            WRPMtoERPMmultiplierByGears[i + 1] = WRPMtoERPMmultiplierByGears[i] / (GearUpRPMThisGear / GearUpRPMNextGear);
+            WRPMtoERPMmultiplierByGears[i + 1] = WRPMtoERPMmultiplierByGears[i] / (GearUpRPMThisGear[i] / GearUpRPMNextGear[i]);
         }
 
        
@@ -71,7 +77,7 @@ public class Perfermance : MonoBehaviour {
             if (i < WRPMtoERPMmultiplierByGears.Length - 1)
             {
 
-                WheelRPM = GearUpRPMThisGear / WRPMtoERPMmultiplierByGears[i];
+                WheelRPM = GearUpRPMThisGear[i] / WRPMtoERPMmultiplierByGears[i];
                 //   MaxSpeedToEachGear[i] = Mathf.RoundToInt(WheelRPM * (WheelColliders[0].radius * 2 * 100) * 0.001885f);  
                 MaxSpeedToEachGear[i] = Motor.CalculateSpeed(WheelRPM);
             }
@@ -107,7 +113,7 @@ public class Perfermance : MonoBehaviour {
     }
     private void Update()
     {
-     
+    
         CalculateGearRatios();
 /*
         if (Input.GetKeyDown(KeyCode.K))

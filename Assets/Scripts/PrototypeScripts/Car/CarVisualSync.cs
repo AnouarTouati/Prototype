@@ -125,7 +125,7 @@ public class CarVisualSync : MonoBehaviourPunCallbacks,IPunObservable {
                     if (ColorChangedSendDataAndApplyColors)
                     {
                         ApplyColors();
-                        Debug.Log("Checked And Found");
+                      
                     }
 
 

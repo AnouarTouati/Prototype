@@ -36,7 +36,7 @@ public class LobbyController : MonoBehaviourPunCallbacks
     {
         IsConnected = true;
         IsTryingToConnect = false;
-        Debug.Log("Connected To MasterServer");
+
     }
     public override void OnDisconnected(DisconnectCause cause)
     {

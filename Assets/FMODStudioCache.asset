@@ -409,7 +409,39 @@ MonoBehaviour:
   Min: 0
   Max: 6300
   Default: 0
+--- !u!114 &-6559373350637988308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: DistanceFromListener
+  Min: 0
+  Max: 200
+  Default: 0
 --- !u!114 &-6514529103148300991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: RPM
+  Min: 0
+  Max: 6300
+  Default: 0
+--- !u!114 &-6402288741959805999
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -626,6 +658,22 @@ MonoBehaviour:
   Max: 6300
   Default: 0
 --- !u!114 &-4168196888838057323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: RPM
+  Min: 0
+  Max: 6300
+  Default: 0
+--- !u!114 &-4004292746572541864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -862,7 +910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\FMODproject\Build\Desktop\Master Bank.strings.bank
-  lastModified: 637105270001717025
+  lastModified: 637180078422462421
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -1234,7 +1282,7 @@ MonoBehaviour:
   - {fileID: 1775366772442586816}
   StringsBanks:
   - {fileID: -2297192548792279071}
-  stringsBankWriteTime: 637105270001717025
+  stringsBankWriteTime: 637180078422462421
   cacheVersion: 3
 --- !u!114 &123695006995471733
 MonoBehaviour:
@@ -1380,6 +1428,22 @@ MonoBehaviour:
   Min: 0
   Max: 6300
   Default: 0
+--- !u!114 &1620316127112298173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: DistanceFromListener
+  Min: 0
+  Max: 200
+  Default: 0
 --- !u!114 &1723387130266349778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1409,7 +1473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: C:\Projects\UnityGAMES\Prototype\Assets\FMODproject\Build\Desktop\Master Bank.bank
-  lastModified: 637105270001551485
+  lastModified: 637180078422422442
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -1467,8 +1531,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 2244618895084997530}
-  - {fileID: 7191284486330937131}
+  - {fileID: -6402288741959805999}
+  - {fileID: 1620316127112298173}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -1980,8 +2044,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 123695006995471733}
-  - {fileID: -7789634225965995061}
+  - {fileID: -4004292746572541864}
+  - {fileID: -6559373350637988308}
   MinDistance: 0
   MaxDistance: 0
   Length: 0

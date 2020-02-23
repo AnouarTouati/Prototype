@@ -9,7 +9,7 @@ public class CustomizationMenu : MonoBehaviour {
     public GameObject[] SuspensionUpgradeButtons;
     public GameObject[] TiresUpgradeButtons;
     public GameObject[] BrakesUpgradeButtons;
-    public Perfermance Perfermance;
+     Perfermance Perfermance;
     private SaveGame SaveGame;
     public GameObject BodyMenu;
     
