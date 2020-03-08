@@ -41,7 +41,7 @@ public class LobbyControllerGUI :MonoBehaviour  {
 
             OnlineGUI.SetActive(true);
             OfflineGUI.SetActive(false);
-        }
+        } 
         if (LobbyController.IsTryingToConnect)
         {
             RetryConnectionToServerPhoton.interactable = false;

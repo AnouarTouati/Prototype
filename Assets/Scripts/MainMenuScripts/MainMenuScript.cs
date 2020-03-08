@@ -18,18 +18,23 @@ public class MainMenuScript :MonoBehaviour {
         
 
     }
-   
+
     public void SwitchToMainMenu()
     {
-       
+
         BuyCarMenuScript.DestroyTheTempCar();///we do this to prevent showing two cars on the same time while switching between menus
         CarSelectioMenuScript.LoadCar();///we do this to prevent showing two cars on the same time while switching between menus
         for (int i = 0; i < Menus.Length; i++)
         {
-            if (i != 0)
-            {
+            if (i != 0) { 
+
+                if (i == 5)//aka networkmenu
+                {
+                    Menus[5].GetComponentInChildren<LobbyController>().ResetTheScript();
+                }
                 Menus[i].SetActive(false);
-            }
+        } 
+    
             else
             {
                 Menus[i].SetActive(true);
@@ -40,7 +45,7 @@ public class MainMenuScript :MonoBehaviour {
         {
 
             SwitchToNetworkMenu();
-            GameObject.Find("LobbyController").GetComponent<LobbyController>().CalledFromButtonsOfPlay(SaveGame.OfflineMode);
+            GameObject.Find("LobbyController").GetComponent<LobbyController>().SetPlayModeSingleOrMultiPlayer(SaveGame.OfflineMode);
             SaveGame.JustReturnedFromRoomToLobby = false;
             
         }

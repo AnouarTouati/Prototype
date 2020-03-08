@@ -1,21 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
-public class CarVisualSync : MonoBehaviourPunCallbacks,IPunObservable {
+public class CarVisualSync : MonoBehaviourPunCallbacks, IPunObservable
+{
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-       
-        if (stream.IsWriting )
+
+        if (stream.IsWriting)
         {
 
-           
-                stream.SendNext(BodyArrayColor);
-                stream.SendNext(SideViewMirrosArrayColor);
-                stream.SendNext(HoodArrayColor);
-                stream.SendNext(RimsArrayColor);
-            
-               
+
+            stream.SendNext(BodyArrayColor);
+            stream.SendNext(SideViewMirrosArrayColor);
+            stream.SendNext(HoodArrayColor);
+            stream.SendNext(RimsArrayColor);
+
+
             // WE SHOULD ONLY SYNC VISUAL APPEARNCES
             // we might not need to send these values since we are relying on the Photont Transform view to sync position and not acually calculaing the physics at each client
 
@@ -27,9 +28,9 @@ public class CarVisualSync : MonoBehaviourPunCallbacks,IPunObservable {
         }
         else
         {
-           
 
-          
+
+
             BodyArrayColor = (float[])stream.ReceiveNext();
             SideViewMirrosArrayColor = (float[])stream.ReceiveNext();
             HoodArrayColor = (float[])stream.ReceiveNext();
@@ -52,7 +53,7 @@ public class CarVisualSync : MonoBehaviourPunCallbacks,IPunObservable {
 
     //Keep The HideInInspector Attributes because without them errors will occur
     [HideInInspector]
-    public float[] BodyArrayColor=new float[4];
+    public float[] BodyArrayColor = new float[4];
     [HideInInspector]
     public float[] SideViewMirrosArrayColor = new float[4];
     [HideInInspector]
@@ -60,7 +61,7 @@ public class CarVisualSync : MonoBehaviourPunCallbacks,IPunObservable {
     [HideInInspector]
     public float[] RimsArrayColor = new float[4];
 
-    
+
     /////////////////////////////////////////////////////////////////////////////
     Color BodyColor;
     Color SideViewMirrorsColor;
@@ -75,49 +76,50 @@ public class CarVisualSync : MonoBehaviourPunCallbacks,IPunObservable {
     public Renderer Body;
     public Renderer SideViewMirrors;
     public Renderer Hood;
-    public Renderer[] Rims=new Renderer[4];
+    public Renderer[] Rims = new Renderer[4];
     /////////////////////////////////////////////////////////////////////////////
-    public bool InstantiedFromSaveGameForInitializingOnly=false;
+    public bool InstantiedFromSaveGameForInitializingOnly = false;
     bool ColorChangedSendDataAndApplyColors = false;
     /////////////////////////////////////////////////////////////////////////////
     
-  
-    void Start ()
+
+    void Start()
     {
-       
+      //  bodyMaterial.color = Color.yellow;
+
         if (InstantiedFromSaveGameForInitializingOnly == false)
         {
             if (!GameObject.Find("BuyCarGUI"))
             {
 
                 SaveGame = GameObject.Find("SaveGame").GetComponent<SaveGame>();
-                GetColorsFromSaveGame();
-                ApplyColors();
+               GetColorsFromSaveGame();
+               ApplyColors();
 
             }
             else
             {
-                ApplyDefaultColors();
+               ApplyDefaultColors();
             }
         }
-       
-         
+
+
 
     }
-	
-	
-	void Update ()
+
+    
+    void Update()
     {
-     
+
         if (SaveGame == null)
         {
             SaveGame = GameObject.Find("SaveGame").GetComponent<SaveGame>();
         }
-        if (InstantiedFromSaveGameForInitializingOnly==false)
+        if (InstantiedFromSaveGameForInitializingOnly == false)
         {
             if (SceneManager.GetActiveScene().name == "MainMenu")
             {
-                if (!GameObject.Find("BuyCarGUI") )
+                if (!GameObject.Find("BuyCarGUI"))
                 {
                     GetColorsFromSaveGame();
                     CheckForColorChange();
@@ -125,7 +127,7 @@ public class CarVisualSync : MonoBehaviourPunCallbacks,IPunObservable {
                     if (ColorChangedSendDataAndApplyColors)
                     {
                         ApplyColors();
-                      
+
                     }
 
 
@@ -135,15 +137,16 @@ public class CarVisualSync : MonoBehaviourPunCallbacks,IPunObservable {
                     ApplyDefaultColors();//find solution for this so we dont keep calling it
                 }
             }
-         
-           
-           else
+
+
+            else
             {
-                if (GetComponent<Transform>().tag.Equals("AIDriving")) { //&& transform.tag=="AIDriving" is to detect in offline mode and not apply the same colors as Player pref
+                if (GetComponent<Transform>().tag.Equals("AIDriving"))
+                { //&& transform.tag=="AIDriving" is to detect in offline mode and not apply the same colors as Player pref
                     ///this block my break online syncing i didnt test it yet
                     ApplyDefaultColors();
                 }
-                  else  if (PV.IsMine)
+                else if (PV.IsMine)
                 {
                     GetColorsFromSaveGame();
                     CheckForColorChange();
@@ -151,7 +154,7 @@ public class CarVisualSync : MonoBehaviourPunCallbacks,IPunObservable {
                     {
                         ApplyColors();
                     }
-                   
+
                 }
                 else
                 {
@@ -167,125 +170,127 @@ public class CarVisualSync : MonoBehaviourPunCallbacks,IPunObservable {
         }
 
 
-       
+
     }
     void CheckForColorChange()
     {
         ColorChangedSendDataAndApplyColors = false;
         for (int i = 0; i < 4; i++)
         {
-            if (Body != null)
+            if (BodyArrayColor[i] != Body.material.color[i])
             {
-                if (BodyArrayColor[i] != Body.material.color[i])
-                {
-                    ColorChangedSendDataAndApplyColors = true;
+                ColorChangedSendDataAndApplyColors = true;
+                break;
 
-
-                }
             }
-          
-            
+
+
         }
-        for (int i = 0; i < 4; i++)
+        if (ColorChangedSendDataAndApplyColors == false)
         {
-            if (SideViewMirrors != null)
+            for (int i = 0; i < 4; i++)
             {
+
                 if (SideViewMirrosArrayColor[i] != SideViewMirrors.material.color[i])
                 {
                     ColorChangedSendDataAndApplyColors = true;
-
+                    break;
 
                 }
+
+
             }
-           
         }
-        for (int i = 0; i < 4; i++)
+        if (ColorChangedSendDataAndApplyColors == false)
         {
-            if (Hood != null)
+
+            for (int i = 0; i < 4; i++)
             {
+
                 if (HoodArrayColor[i] != Hood.material.color[i])
                 {
                     ColorChangedSendDataAndApplyColors = true;
 
                 }
+
+
             }
-            
         }
-        for (int i = 0; i < 4; i++)
+        if (ColorChangedSendDataAndApplyColors == false)
         {
-            if (Rims != null)
+            for (int i = 0; i < 4; i++)
             {
-                if (Rims[i] != null)
+
+                if (RimsArrayColor[i] != Rims[0].material.color[i])
                 {
-                    if (RimsArrayColor[i] != Rims[0].material.color[i])
-                    {
-                        ColorChangedSendDataAndApplyColors = true;
+                    ColorChangedSendDataAndApplyColors = true;
 
 
-                    }
                 }
+
+
             }
-            
+
+
         }
-        
+
     }
     void GetColorsFromSaveGame()
     {
-        BodyArrayColor = 
+        BodyArrayColor =
             SaveGame.SelectedCarForPlay.BodyColor;
-        
+
         SideViewMirrosArrayColor = SaveGame.SelectedCarForPlay.SideViewMirrorsColor;
-        
+
         HoodArrayColor = SaveGame.SelectedCarForPlay.HoodColor;
-        
+
         RimsArrayColor = SaveGame.SelectedCarForPlay.RimsColor;
-        
+
     }
     void ApplyColors()
     {
        
         BodyColor = new Color(BodyArrayColor[0], BodyArrayColor[1], BodyArrayColor[2], BodyArrayColor[3]);
+       
         SideViewMirrorsColor = new Color(SideViewMirrosArrayColor[0], SideViewMirrosArrayColor[1], SideViewMirrosArrayColor[2], SideViewMirrosArrayColor[3]);
         HoodColor = new Color(HoodArrayColor[0], HoodArrayColor[1], HoodArrayColor[2], HoodArrayColor[3]);
         RimsColor = new Color(RimsArrayColor[0], RimsArrayColor[1], RimsArrayColor[2], RimsArrayColor[3]);
-        if(Body!=null)
-        Body.material.color = BodyColor;
-        if (SideViewMirrors != null)
-        SideViewMirrors.material.color = SideViewMirrorsColor;
-        if (Hood != null)
-        Hood.material.color = HoodColor;
-        if (Rims != null)
+
+       
+        Body.material.SetColor("_BaseColor", BodyColor);
+        SideViewMirrors.material.SetColor("_BaseColor", SideViewMirrorsColor);
+
+        Hood.material.SetColor("_BaseColor", HoodColor);
+
         for (int i = 0; i < Rims.Length; i++)
         {
-                if (Rims[i] != null)
-                {
-                    Rims[i].material.color = RimsColor;
-                }
-           
+
+            Rims[i].material.SetColor("_BaseColor", RimsColor);
+
+
         }
+
     }
 
-   void ApplyDefaultColors()
+    void ApplyDefaultColors()
     {
-       
-        if (Body != null)
-            Body.material.color = DefaultBodyColor;
-        if (SideViewMirrors != null)
-            SideViewMirrors.material.color = DefaultSideViewMirrorsColor;
-        if (Hood != null)
-            Hood.material.color = DefaultHoodColor;
-        if (Rims != null)
+
+
+        Body.material.SetColor("_BaseColor", DefaultBodyColor);
+
+        SideViewMirrors.material.SetColor("_BaseColor", DefaultSideViewMirrorsColor);
+
+        Hood.material.SetColor("_BaseColor", DefaultHoodColor);
+
+        for (int i = 0; i < Rims.Length; i++)
         {
-            for (int i = 0; i < Rims.Length; i++)
-            {
-                if (Rims[i] != null)
-                {
-                    Rims[i].material.color = DefaultRimsColor;
-                }
-                    
-            }
+
+            Rims[i].material.SetColor("_BaseColor", DefaultRimsColor);
+
+
         }
-           
-            
+
+
+
     }
 }

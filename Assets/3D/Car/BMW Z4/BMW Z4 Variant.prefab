@@ -11,6 +11,74 @@ PrefabInstance:
       propertyPath: m_Name
       value: BMW Z4 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100020, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100024, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100028, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100030, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100032, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100034, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100036, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100038, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100040, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100042, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100044, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100046, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f0f5fa7ece4cc444ebafed70129d5af0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -166.0699

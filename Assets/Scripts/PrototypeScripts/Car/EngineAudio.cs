@@ -5,9 +5,9 @@ using Photon.Pun;
 public class EngineAudio : MonoBehaviourPunCallbacks,IPunObservable
 {
     
-    FMOD.Studio.EventInstance EngineSource;
-    FMOD.Studio.ParameterInstance RPM;
-    FMOD.Studio.ParameterInstance DistanceFromListener;
+  //  FMOD.Studio.EventInstance EngineSource;
+  //  FMOD.Studio.ParameterInstance RPM;
+  //  FMOD.Studio.ParameterInstance DistanceFromListener;
     public Motor Motor;
     public float speed;
     public Transform CameraTransform;
@@ -17,12 +17,12 @@ public class EngineAudio : MonoBehaviourPunCallbacks,IPunObservable
     void Start()
     {
         
-        EngineSource=  FMODUnity.RuntimeManager.CreateInstance("event:/Engine/"+name);
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(EngineSource, this.GetComponent<Transform>(), this.GetComponent<Rigidbody>());
+    //    EngineSource=  FMODUnity.RuntimeManager.CreateInstance("event:/Engine/"+name);
+    //    FMODUnity.RuntimeManager.AttachInstanceToGameObject(EngineSource, this.GetComponent<Transform>(), this.GetComponent<Rigidbody>());
         
-        EngineSource.getParameter("RPM", out RPM);
-        EngineSource.getParameter("DistanceFromListener", out DistanceFromListener);
-        EngineSource.start();
+    //    EngineSource.getParameter("RPM", out RPM);
+    //    EngineSource.getParameter("DistanceFromListener", out DistanceFromListener);
+    //    EngineSource.start();
         if (CameraTransform == null && GameObject.Find("CamParent"))
         {
             CameraTransform = GameObject.Find("CamParent").GetComponent<Transform>();
@@ -47,12 +47,12 @@ public class EngineAudio : MonoBehaviourPunCallbacks,IPunObservable
         {
             
            
-              DistanceFromListener.setValue(Mathf.Clamp(Vector3.Distance(this.GetComponent<Transform>().position, CameraTransform.position),0,90));
+          //    DistanceFromListener.setValue(Mathf.Clamp(Vector3.Distance(this.GetComponent<Transform>().position, CameraTransform.position),0,90));
            
            
         }
 
-        RPM.setValue(RPMcopy);
+      //  RPM.setValue(RPMcopy);
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -67,9 +67,11 @@ public class EngineAudio : MonoBehaviourPunCallbacks,IPunObservable
            RPMcopy=(float) stream.ReceiveNext();
         }
     }
+    
     public void ResetTheScript()
     {
-        EngineSource.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+     //  EngineSource.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         
     }
+    
 }

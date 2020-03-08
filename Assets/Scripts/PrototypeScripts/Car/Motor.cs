@@ -30,8 +30,7 @@ public class Motor : MonoBehaviourPunCallbacks
 
     private float WheelRPMtoEngineRPMmultiplier;
 
-    public float Speed;
-    public float LimitSpeedForCornerInKM;
+    
     public int BeginingOfLastLookAheadAnglePositionInWayPoints = -1;
     /* public bool IsAccelerating = false;//leave public for tail lights
      public bool IsBraking = false;*/
@@ -51,6 +50,7 @@ public class Motor : MonoBehaviourPunCallbacks
     public int CurrentWayPointIndex = 0;
     public GameObject MiniMapIcon;
     public GameObject MiniMapIconOther;
+
 
     [Header("AI Section")]
     public float SensorsLength;
@@ -75,6 +75,8 @@ public class Motor : MonoBehaviourPunCallbacks
 
     public float CurveRadius;
     public Vector3 CentralPoint;
+    public float Speed;
+    public float LimitSpeedForCornerInKM;
     public float LimitSpeedForCorner;
 
     public float EntryPointCriteria = 4f;
@@ -114,6 +116,7 @@ public class Motor : MonoBehaviourPunCallbacks
                 {
                     MiniMapIcon.SetActive(true);
                     MiniMapIconOther.SetActive(false);
+                   
 
                 }
                 else
@@ -121,6 +124,7 @@ public class Motor : MonoBehaviourPunCallbacks
 
                     MiniMapIcon.SetActive(false);
                     MiniMapIconOther.SetActive(true);
+                    
                     GetComponentInParent<Transform>().transform.tag = "AIDriving";
                 }
 
@@ -132,6 +136,7 @@ public class Motor : MonoBehaviourPunCallbacks
                 GetComponentInParent<Transform>().transform.tag = "OtherPlayer";
                 MiniMapIcon.SetActive(false);
                 MiniMapIconOther.SetActive(true);
+                
                 for (int i = 0; i < WheelColliders.Length; i++)
                 {
                  //   WheelColliders[i].enabled = false;//we turn off wheelcolliders so in online the Car will not JUMP AND FLY
@@ -288,9 +293,12 @@ public class Motor : MonoBehaviourPunCallbacks
             bool FoundACurve = false;
             if (CurrentWayPointIndex > LastLookAheadAnglePositionInWayPoints)
             {
-
-
-                for (int i = CurrentWayPointIndex; i < RaceSystem.WayPoints.Length - 2; i++)
+               int HowManyCheckPointToCheckNext=15;
+                int LimitAccessIndex;
+                if(CurrentWayPointIndex+HowManyCheckPointToCheckNext <RaceSystem.WayPoints.Length - 2){
+                    LimitAccessIndex=CurrentWayPointIndex+HowManyCheckPointToCheckNext;
+                }else{ LimitAccessIndex= RaceSystem.WayPoints.Length - 2;}
+                for (int i = CurrentWayPointIndex; i < LimitAccessIndex ; i++)
                 {
                     Vector3 CheckVector = (RaceSystem.WayPoints[i + 1].position - RaceSystem.WayPoints[i].position) - (RaceSystem.WayPoints[i + 2].position - RaceSystem.WayPoints[i + 1].position);
 
@@ -308,9 +316,9 @@ public class Motor : MonoBehaviourPunCallbacks
                         CurveExitPointVector = RaceSystem.WayPoints[i + 1].position - RaceSystem.WayPoints[i].position;
                         LastLookAheadAnglePositionInWayPoints = i + 2;
                         FoundACurve = true;
-                //        Debug.DrawRay(CurveEntryPoint, CurveEntryPointVector * 10, Color.red, 50, false);
+                       Debug.DrawRay(CurveEntryPoint, CurveEntryPointVector * 10, Color.red, 50, false);
 
-                 //       Debug.DrawRay(CurveExitPoint, CurveExitPointVector * 10, Color.green, 50, false);
+                        Debug.DrawRay(CurveExitPoint, CurveExitPointVector * 10, Color.green, 50, false);
                         break;
                     }
 
@@ -339,7 +347,7 @@ public class Motor : MonoBehaviourPunCallbacks
             }
 
 
-            float friction = 0.65f;
+            float friction = 0.68f;
             float gravity = 9.8f;
             LimitSpeedForCorner = Mathf.Sqrt(gravity * CurveRadius * friction);//circular motion equation found it on youtube https://www.youtube.com/watch?v=fvDR-gIf1fo
             LimitSpeedForCornerInKM = LimitSpeedForCorner / 1000 * 3600;
@@ -352,7 +360,7 @@ public class Motor : MonoBehaviourPunCallbacks
             float TheWorkNeededToLowerSpeed = ActualKinitecEnergy - CornerKinitecEnergy;
             float DistanceNeededWhenApplyingFullBrake = TheWorkNeededToLowerSpeed / MaxForceOfBraking;
 
-            if (TheWorkNeededToLowerSpeed <= 0 || (CurrentWayPointIndex > LastLookAheadAnglePositionInWayPoints && FoundACurve == false))//meaning we are below the limitCurveSpeed or NoCurveFound at the end of track
+            if (TheWorkNeededToLowerSpeed <= 0 || CurrentWayPointIndex > LastLookAheadAnglePositionInWayPoints)//meaning we are below the limitCurveSpeed or NoCurveFound at the end of track
             {
                 AIAccelerates = true;
                 AIBrakes = false;

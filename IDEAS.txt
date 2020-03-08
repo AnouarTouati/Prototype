@@ -1,3 +1,6 @@
 simplify the game visual to basic things look at nfs mw 2012 dvd cover
 look at the dvd cover nfs 2015 just simple wide road with corners elevated/flat sections building are only in distance and are skybox
 sides of the road are flat planes with shader the road has standard texture night game
+a tokyo night game where main vibe color is blue like the image cover of "Come to me Akira Complex,PSYQUI" or "Fly to the moon PSYQUI,Sanso Nakamura"
+look at the cover art of "twinkle night" nyankobrq  the building could have a texture and post processing
+auto modellista

@@ -14,39 +14,59 @@ public class LobbyController : MonoBehaviourPunCallbacks
   
     public bool IsTryingToConnect = false;
     public bool IsConnected = false;
-    void Start()
-    {
+    private int counter = 0;
+    private bool tryToDisconnectToChangeSingleMulti = false;
+   public void SetPlayModeSingleOrMultiPlayer(bool Singleplayer){//singleplayer button and multiplayer button
       
-       
-    }
-   
-    void Update()
-    {
-       
+        GameObject.Find("SaveGame").GetComponent<SaveGame>().OfflineMode = Singleplayer;
 
-     
-    }
-   public void CalledFromButtonsOfPlay(bool Singleplayer){//singleplayer button and multiplayer button
-      IsConnected=false;
-      GameObject.Find("SaveGame").GetComponent<SaveGame>().OfflineMode=Singleplayer;
-      ConnectToMainServerPhoton();
+        if (PhotonNetwork.OfflineMode != Singleplayer && PhotonNetwork.IsConnected)
+        {
+            tryToDisconnectToChangeSingleMulti = true;
+            PhotonNetwork.Disconnect();    
+          
+        }
+        else if(!PhotonNetwork.IsConnected)
+        { 
+            ConnectToMainServerPhoton();
+        }
+       
+      
+    
     }
     #region CallBacks
     public override void OnConnectedToMaster()
     {
         IsConnected = true;
         IsTryingToConnect = false;
-
+        
     }
     public override void OnDisconnected(DisconnectCause cause)
     {
+        Debug.Log("Disconnect called");
         IsConnected = false;
         IsTryingToConnect = false;
 
+        if (tryToDisconnectToChangeSingleMulti)
+        {
+            counter++;
+            if (counter >= 2 && GameObject.Find("SaveGame").GetComponent<SaveGame>().OfflineMode == true)
+            {
+                counter = 0;
+                ConnectToMainServerPhoton();
+            }
+            if (counter >= 3 && GameObject.Find("SaveGame").GetComponent<SaveGame>().OfflineMode == false)
+            {
+                counter = 0;
+                ConnectToMainServerPhoton();
+            }
+        }
+            
+
+       
     }
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-       
         CreateaRoom();
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
@@ -75,18 +95,27 @@ public class LobbyController : MonoBehaviourPunCallbacks
     }
     public void ConnectToMainServerPhoton()
     {
+        tryToDisconnectToChangeSingleMulti = false;
         if (IsTryingToConnect == false)
         {
-          PhotonNetwork.OfflineMode= GameObject.Find("SaveGame").GetComponent<SaveGame>().OfflineMode;
-         
-            if (!IsConnected)
+            IsTryingToConnect = true;
+            //apply true to  PhotonNetwork.OfflineMode will create a server thus we dont need to call PhotonNetwork.ConnectUsingSettings()
+
+            PhotonNetwork.OfflineMode= GameObject.Find("SaveGame").GetComponent<SaveGame>().OfflineMode;
+            //this code just to ensure that we dont already have an offline server created by the above code
+            if (!PhotonNetwork.OfflineMode)
             {
-                IsTryingToConnect = true;
+                
                 PhotonNetwork.ConnectUsingSettings();
+                
                 // add a button to retry connection if failed
             }
             PhotonNetwork.AutomaticallySyncScene = true;
         }
        
+    }
+    public void ResetTheScript()
+    {
+      //  PhotonNetwork.Disconnect();
     }
 }

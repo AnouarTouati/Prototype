@@ -1,0 +1,4 @@
+-the object receiving refelections must have metallic and smoothness set to 1
+-the object to receive reflections must be inside the probe box to receive reflections
+-the object to receive relections can specify from which probe it gets reflection from the objects mesh rendrer settings
+-through shader graph we can set some portions of the material to be reflective(mettalic and smooth) by attaching a noise or tecture to smooth mettalic slot on master node
