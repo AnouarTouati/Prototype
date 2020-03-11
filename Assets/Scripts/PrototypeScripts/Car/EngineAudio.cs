@@ -5,8 +5,8 @@ using Photon.Pun;
 public class EngineAudio : MonoBehaviourPunCallbacks,IPunObservable
 {
     
-  //  FMOD.Studio.EventInstance EngineSource;
-  //  FMOD.Studio.ParameterInstance RPM;
+   FMOD.Studio.EventInstance EngineSource;
+    FMOD.Studio.ParameterInstance RPM;
   //  FMOD.Studio.ParameterInstance DistanceFromListener;
     public Motor Motor;
     public float speed;
@@ -17,12 +17,14 @@ public class EngineAudio : MonoBehaviourPunCallbacks,IPunObservable
     void Start()
     {
         
-    //    EngineSource=  FMODUnity.RuntimeManager.CreateInstance("event:/Engine/"+name);
+      //  EngineSource=  FMODUnity.RuntimeManager.CreateInstance("event:/Engine/"+name);
+      EngineSource=  FMODUnity.RuntimeManager.CreateInstance("event:/350Z");
+    
     //    FMODUnity.RuntimeManager.AttachInstanceToGameObject(EngineSource, this.GetComponent<Transform>(), this.GetComponent<Rigidbody>());
         
-    //    EngineSource.getParameter("RPM", out RPM);
+       EngineSource.getParameterByName("RPM", out RPM);
     //    EngineSource.getParameter("DistanceFromListener", out DistanceFromListener);
-    //    EngineSource.start();
+        EngineSource.start();
         if (CameraTransform == null && GameObject.Find("CamParent"))
         {
             CameraTransform = GameObject.Find("CamParent").GetComponent<Transform>();
@@ -52,7 +54,7 @@ public class EngineAudio : MonoBehaviourPunCallbacks,IPunObservable
            
         }
 
-      //  RPM.setValue(RPMcopy);
+        RPM.setValue(RPMcopy);
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
