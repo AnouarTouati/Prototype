@@ -6,8 +6,7 @@ public class EngineAudio : MonoBehaviourPunCallbacks,IPunObservable
 {
     
    FMOD.Studio.EventInstance EngineSource;
-    FMOD.Studio.ParameterInstance RPM;
-  //  FMOD.Studio.ParameterInstance DistanceFromListener;
+ 
     public Motor Motor;
     public float speed;
     public Transform CameraTransform;
@@ -16,15 +15,13 @@ public class EngineAudio : MonoBehaviourPunCallbacks,IPunObservable
     public string name;
     void Start()
     {
-        
-      //  EngineSource=  FMODUnity.RuntimeManager.CreateInstance("event:/Engine/"+name);
-      EngineSource=  FMODUnity.RuntimeManager.CreateInstance("event:/350Z");
+
+        EngineSource = FMODUnity.RuntimeManager.CreateInstance("event:/Engine/" + name);
     
-    //    FMODUnity.RuntimeManager.AttachInstanceToGameObject(EngineSource, this.GetComponent<Transform>(), this.GetComponent<Rigidbody>());
-        
-       EngineSource.getParameterByName("RPM", out RPM);
-    //    EngineSource.getParameter("DistanceFromListener", out DistanceFromListener);
-        EngineSource.start();
+         FMODUnity.RuntimeManager.AttachInstanceToGameObject(EngineSource, this.GetComponent<Transform>(), this.GetComponent<Rigidbody>());
+
+        //    EngineSource.getParameter("DistanceFromListener", out DistanceFromListener);
+          EngineSource.start();
         if (CameraTransform == null && GameObject.Find("CamParent"))
         {
             CameraTransform = GameObject.Find("CamParent").GetComponent<Transform>();
@@ -47,14 +44,14 @@ public class EngineAudio : MonoBehaviourPunCallbacks,IPunObservable
         }
         else if(CameraTransform!=null)
         {
-            
-           
-          //    DistanceFromListener.setValue(Mathf.Clamp(Vector3.Distance(this.GetComponent<Transform>().position, CameraTransform.position),0,90));
+
+
+         //   EngineSource.setParameterByName("Distance",Mathf.Clamp(Vector3.Distance(this.GetComponent<Transform>().position, CameraTransform.position),0,90));
            
            
         }
 
-        RPM.setValue(RPMcopy);
+        EngineSource.setParameterByName("RPM", RPMcopy);
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -72,7 +69,7 @@ public class EngineAudio : MonoBehaviourPunCallbacks,IPunObservable
     
     public void ResetTheScript()
     {
-     //  EngineSource.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+      EngineSource.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         
     }
     

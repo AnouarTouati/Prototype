@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="Mixer" id="{44efbbb4-04a8-4ab9-b5b5-a515617642d5}">
+		<relationship name="masterBus">
+			<destination>{eb54a24d-874f-4e62-a949-044e4d75f929}</destination>
+		</relationship>
+		<relationship name="snapshotList">
+			<destination>{bb3be597-c288-46c6-bcfe-4e53ac38f3fc}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -667,25 +667,20 @@ public class Motor : MonoBehaviourPunCallbacks
         Vector2 FirstPoint = new Vector2(RaceSystem.WayPoints[MinDistanceIndex].transform.position.x, RaceSystem.WayPoints[MinDistanceIndex].transform.position.z);
         Vector2 SecondPoint= new Vector2(RaceSystem.WayPoints[MinDistanceIndex+1].transform.position.x, RaceSystem.WayPoints[MinDistanceIndex+1].transform.position.z);
         Vector2 desiredDirectionVector = SecondPoint-FirstPoint;
-        desiredDirectionVector = desiredDirectionVector.normalized;
-        
-       
+        //  desiredDirectionVector = desiredDirectionVector.normalized;
+        desiredDirectionVector.y = 0;
 
+        /*
         
-    //    Debug.DrawRay(transform.position, new Vector3(desiredDirectionVector.x,0, desiredDirectionVector.y), Color.red,50,false);
-      //  Debug.DrawRay(transform.position, transform.forward, Color.blue, 50, false);
         float ResetAngle = Vector2.SignedAngle(transform.forward,desiredDirectionVector);
-     /*   Debug.Log("Chosen Way Point Index" + MinDistanceIndex);
-        Debug.Log("Chosen Way Point Index+1 " + MinDistanceIndex+1);
-        Debug.Log("Y angle before reset" + transform.eulerAngles.y);
-        Debug.Log("The Reset Angle " + ResetAngle);
-        Debug.Log(transform.forward);
-        Debug.Log(desiredDirectionVector);*/
+     
         transform.position = RaceSystem.WayPoints[MinDistanceIndex].transform.position + new Vector3(0, 3, 0);
 
         Quaternion rotation = Quaternion.AngleAxis(-ResetAngle, Vector3.up);
         transform.rotation *= rotation;
-        transform.eulerAngles = new Vector3(0, transform.rotation.eulerAngles.y, 0);
+        transform.eulerAngles = new Vector3(0, transform.rotation.eulerAngles.y, 0);*/
+        Quaternion newRotation = Quaternion.LookRotation(desiredDirectionVector);
+        transform.rotation = newRotation;
 
     }
    

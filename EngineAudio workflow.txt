@@ -1,0 +1,8 @@
+take an engine audio from youtube
+use Audacity to cut a somewhat high rev section 
+duplicate the section reverse it and make it loop seemlessy
+use fmod create an event with that one clip
+add rpm paramter ...go to master node right click on pitch add automation
+use make the graph a line that starts from -14st to 10st at max rpm
+next add distance parameter.... then right click on volume in master node and add automation
+select the distance parameter sheet and find the volume graph make a line that starts at 10db and ends at minus infinity

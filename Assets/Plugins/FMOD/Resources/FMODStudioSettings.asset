@@ -15,15 +15,15 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: Assets\FmodProject\PrototypeFMOD\PrototypeFMOD.fspro
-  sourceBankPath: Assets\FmodProject\PrototypeFMOD\Build
+  sourceProjectPath: Assets/MyFMODProject/MyFMODProject.fspro
+  sourceBankPath: Assets\MyFMODProject\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
   AutomaticSampleLoading: 0
   EncryptionKey: 
   ImportType: 0
-  TargetAssetPath: 
+  TargetAssetPath: FMODBanks
   LoggingLevel: 2
   SpeakerModeSettings:
   - Platform: 2
@@ -46,7 +46,7 @@ MonoBehaviour:
     Value: 0
   OverlaySettings:
   - Platform: 1
-    Value: 1
+    Value: 0
   - Platform: 2
     Value: 0
   - Platform: 20

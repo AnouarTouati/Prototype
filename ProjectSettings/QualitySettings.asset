@@ -40,6 +40,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
+    customRenderPipeline: {fileID: 0}
     excludedTargetPlatforms:
     - Android
     - Standalone
@@ -77,6 +78,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
+    customRenderPipeline: {fileID: 0}
     excludedTargetPlatforms:
     - Android
     - Standalone
@@ -114,6 +116,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
+    customRenderPipeline: {fileID: 0}
     excludedTargetPlatforms:
     - Android
     - Standalone
@@ -151,6 +154,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
+    customRenderPipeline: {fileID: 0}
     excludedTargetPlatforms:
     - Android
     - Standalone
@@ -188,6 +192,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
+    customRenderPipeline: {fileID: 0}
     excludedTargetPlatforms:
     - Android
     - Standalone
@@ -225,6 +230,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
+    customRenderPipeline: {fileID: 0}
     excludedTargetPlatforms:
     - Android
   m_PerPlatformDefaultQuality:

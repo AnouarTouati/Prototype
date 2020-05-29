@@ -801,8 +801,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088414054563401241}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 0
+  m_Shape: 0
   m_Color: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
   m_Intensity: 151.5
   m_Range: 48
@@ -1097,6 +1098,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -1753,6 +1755,19 @@ Transform:
   m_Father: {fileID: 4682374524871881347}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8729068734328257091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3639480985834481815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: -1
 --- !u!1 &3660593083932542077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2184,6 +2199,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -2455,6 +2471,7 @@ TrailRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2605,6 +2622,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2808,8 +2826,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6597599207723394626}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -2982,8 +3001,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7031767887041617944}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 0
+  m_Shape: 0
   m_Color: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
   m_Intensity: 151.5
   m_Range: 48
@@ -3230,8 +3250,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7897628229812094119}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -3759,8 +3780,6 @@ MonoBehaviour:
   AppliedTorque: 0
   EngineTorque: 0
   Gears: 1
-  Speed: 0
-  LimitSpeedForCornerInKM: 0
   BeginingOfLastLookAheadAnglePositionInWayPoints: -1
   AccelerationButtonPressed: 0
   BrakingButtonPressed: 0
@@ -3787,6 +3806,8 @@ MonoBehaviour:
   LastLookAheadAnglePositionInWayPoints: -7
   CurveRadius: 0
   CentralPoint: {x: 0, y: 0, z: 0}
+  Speed: 0
+  LimitSpeedForCornerInKM: 0
   LimitSpeedForCorner: 0
   EntryPointCriteria: 6
   ExitPointCriteria: 1.5
@@ -3958,6 +3979,7 @@ MonoBehaviour:
   - {fileID: 8940758406819408064}
   - {fileID: 8793473783064375402}
   - {fileID: 6758172294856822247}
+  - {fileID: 1535464641605151900}
   CarCam: {fileID: 6830498670365149214}
 --- !u!114 &5806077108915634648
 MonoBehaviour:
@@ -4042,7 +4064,7 @@ MonoBehaviour:
   CameraTransform: {fileID: 3641727996218501945}
   RPMcopy: 0
   PV: {fileID: 5806077108915634648}
-  name: NissanGTR
+  name: 350Z
 --- !u!1001 &2407291818527326730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4292,9 +4314,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df780c52f2a91534ca0510fa4ba5cefb, type: 3}
---- !u!4 &3641727996218501945 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7801908942800101889, guid: df780c52f2a91534ca0510fa4ba5cefb,
+--- !u!1 &3639480985834481815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7804173167421432239, guid: df780c52f2a91534ca0510fa4ba5cefb,
     type: 3}
   m_PrefabInstance: {fileID: 6831950231215130936}
   m_PrefabAsset: {fileID: 0}
@@ -4307,6 +4329,12 @@ Transform:
 --- !u!1 &6830498670365149214 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1469842420744486, guid: df780c52f2a91534ca0510fa4ba5cefb,
+    type: 3}
+  m_PrefabInstance: {fileID: 6831950231215130936}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3641727996218501945 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7801908942800101889, guid: df780c52f2a91534ca0510fa4ba5cefb,
     type: 3}
   m_PrefabInstance: {fileID: 6831950231215130936}
   m_PrefabAsset: {fileID: 0}
