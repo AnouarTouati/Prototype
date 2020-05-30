@@ -3786,8 +3786,8 @@ MonoBehaviour:
   CurrentWayPointIndex: 0
   MiniMapIcon: {fileID: 8618821937282396163}
   MiniMapIconOther: {fileID: 688453667157594210}
-  SensorsLength: 0
-  SideSensorLength: 0
+  SensorsLength: 5
+  SideSensorLength: 5
   FrontSensorStartTransform: {fileID: 3505279663973546613}
   FrontRightSensorStartTransform: {fileID: 5844570725150934751}
   FrontLeftSensorStartTransform: {fileID: 390194587461710756}
@@ -4077,6 +4077,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiniMapIconOther
       objectReference: {fileID: 0}
+    - target: {fileID: 2946915264726880878, guid: e55672e9d11a8494d89a6759c8cab0ff,
+        type: 3}
+      propertyPath: m_LocalAABB.m_Center.z
+      value: -0.00005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946915264726880878, guid: e55672e9d11a8494d89a6759c8cab0ff,
+        type: 3}
+      propertyPath: m_LocalAABB.m_Extent.z
+      value: 0.00005
+      objectReference: {fileID: 0}
     - target: {fileID: 2946915264726880879, guid: e55672e9d11a8494d89a6759c8cab0ff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4242,6 +4252,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiniMapIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4954066925397412390, guid: 99765f4a60b9b4b4b8b61741a2b88368,
+        type: 3}
+      propertyPath: m_LocalAABB.m_Center.z
+      value: -0.00005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4954066925397412390, guid: 99765f4a60b9b4b4b8b61741a2b88368,
+        type: 3}
+      propertyPath: m_LocalAABB.m_Extent.z
+      value: 0.00005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99765f4a60b9b4b4b8b61741a2b88368, type: 3}

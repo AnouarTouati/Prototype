@@ -937,11 +937,10 @@ public class Motor : MonoBehaviourPunCallbacks
     {
         if (AIDriving)
         {
+          
             Avoiding = false;
             AvoidMultiplier = 0;
             RaycastHit Hit;
-
-
 
 
             if (Physics.Raycast(FrontRightSensorStartTransform.position, FrontRightSensorStartTransform.forward, out Hit, SensorsLength))
@@ -956,7 +955,7 @@ public class Motor : MonoBehaviourPunCallbacks
                     Avoiding = true;
 
                 }
-                // Debug.DrawLine(FrontRightSensorStartTransform.position, Hit.point);
+                 Debug.DrawLine(FrontRightSensorStartTransform.position, Hit.point);
             }
             else
             if (Physics.Raycast(FrontRightAngleSensorStartTransform.position, FrontRightAngleSensorStartTransform.forward, out Hit, SensorsLength))
@@ -969,7 +968,7 @@ public class Motor : MonoBehaviourPunCallbacks
                     Avoiding = true;
 
                 }
-                //  Debug.DrawLine(FrontRightAngleSensorStartTransform.position, Hit.point);
+                  Debug.DrawLine(FrontRightAngleSensorStartTransform.position, Hit.point);
             }
 
 
@@ -985,7 +984,7 @@ public class Motor : MonoBehaviourPunCallbacks
                     Avoiding = true;
 
                 }
-                //  Debug.DrawLine(FrontLeftSensorStartTransform.position, Hit.point);
+                Debug.DrawLine(FrontLeftSensorStartTransform.position, Hit.point);
             }
             else
             if (Physics.Raycast(FrontLeftAngleSensorStartTransform.position, FrontLeftAngleSensorStartTransform.forward, out Hit, SensorsLength))
@@ -999,7 +998,7 @@ public class Motor : MonoBehaviourPunCallbacks
                     Avoiding = true;
 
                 }
-                // Debug.DrawLine(FrontLeftAngleSensorStartTransform.position, Hit.point);
+                Debug.DrawLine(FrontLeftAngleSensorStartTransform.position, Hit.point);
             }
 
             if (Physics.Raycast(SideRightSensorStartTransform.position, SideRightSensorStartTransform.forward, out Hit, SideSensorLength))
@@ -1023,7 +1022,7 @@ public class Motor : MonoBehaviourPunCallbacks
 
                     if (Hit.transform.CompareTag("Obstacle") || Hit.transform.CompareTag("Player") || Hit.transform.CompareTag("OtherPlayer"))
                     {
-                        //  Debug.DrawLine(FrontSensorStartTransform.position, Hit.point);
+                          Debug.DrawLine(FrontSensorStartTransform.position, Hit.point);
                         Avoiding = true;
 
                         if (Hit.normal.x < 0)
@@ -1039,13 +1038,11 @@ public class Motor : MonoBehaviourPunCallbacks
                 }
             }
 
-            
-
-
+            if (Avoiding)
+            {
+                Debug.Log("Avoiding");
+            }
         }
-
-
-
 
 
     }
