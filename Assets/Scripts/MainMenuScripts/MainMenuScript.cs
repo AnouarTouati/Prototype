@@ -12,13 +12,14 @@ public class MainMenuScript :MonoBehaviour {
 
     public SaveGame SaveGame;
     public LobbyController LobbyController;
+  /*
     public void LoadNewGame()//just temporary
     {
         SceneManager.LoadScene(1);
         
 
     }
-
+  */
     public void SwitchToMainMenu()
     {
 

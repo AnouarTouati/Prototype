@@ -19,7 +19,7 @@ public class LobbyControllerGUI :MonoBehaviour  {
         OnlineGUI.SetActive(false);
         LobbyController = GameObject.Find("LobbyController").GetComponent<LobbyController>();
 
-       LoadAvailbleSceneNamesToTheDropDown();
+        LoadAvailbleSceneNamesToTheDropDown();
         LoadAvailbleGameModes();
        
     }
@@ -57,13 +57,15 @@ public class LobbyControllerGUI :MonoBehaviour  {
     }
     public void StartPlaying()
     {
+        LoadSelectedOnlineScene();
         LobbyController.StartPlaying();
 
     }
    
     public void LoadSelectedOnlineScene()
     {
-        LobbyController.SelectedPlaySceneName = SceneNames[OnlineScenesDropDown.value];
+        LobbyController.SelectedPlaySceneIndex = OnlineScenesDropDown.value+1;
+       // Debug.Log("SelectedPlaySceneName Is " + SceneNames[OnlineScenesDropDown.value]);
     }
     public void LoadSelectedGameMode()
     {

@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 0b0249a7adcfc5d4b9ed772b1abcd5b2
   - enabled: 1
-    path: Assets/Scenes/TestCityEngine.unity
-    guid: be6247cc52081174ab14741dd606e61a
+    path: Assets/Scenes/Japan.unity
+    guid: 60abfce67216d4347a3ff16f711fb079
+  - enabled: 1
+    path: Assets/Scenes/Japan2.unity
+    guid: c651fbf5a7d3abc4a96d1532ba7f6f96
+  - enabled: 1
+    path: Assets/Scenes/ZombieRunOver.unity
+    guid: 1ed6fc5518f0ce5489face9c91a460aa
   m_configObjects: {}

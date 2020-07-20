@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
+using System;
+
 public class GamePlayScore : MonoBehaviourPunCallbacks,IPunObservable
 {
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -136,12 +138,16 @@ public class GamePlayScore : MonoBehaviourPunCallbacks,IPunObservable
   [PunRPC]
     void  RPC_AddHimToStandings(string PlayerName, float FinishingTime, float TopSpeed, float AverageSpeed)
     {
+        TimeSpan ts = TimeSpan.FromSeconds(FinishingTime);
+        String FinishTimeString = ts.Minutes + ":" + ts.Seconds + ":" + ts.Milliseconds;
         if (GUIGamePlay.PostRaceGUI.activeSelf == false)
         {
+           
             WaitingListOfTexts[LastFilledStandings, 0] = PlayerName;
-            WaitingListOfTexts[LastFilledStandings, 1] = Mathf.Round(FinishingTime).ToString();
-            WaitingListOfTexts[LastFilledStandings, 2] = Mathf.Round(TopSpeed).ToString();
-            WaitingListOfTexts[LastFilledStandings, 3] = Mathf.Round(AverageSpeed).ToString();
+            WaitingListOfTexts[LastFilledStandings, 1] = "n/a";
+            WaitingListOfTexts[LastFilledStandings, 2] = FinishTimeString; //Mathf.Round(FinishingTime).ToString();
+            WaitingListOfTexts[LastFilledStandings, 3] = Mathf.Round(TopSpeed).ToString();
+            WaitingListOfTexts[LastFilledStandings, 4] = Mathf.Round(AverageSpeed).ToString();
             LastFilledStandings++;
         }
         else
@@ -149,9 +155,10 @@ public class GamePlayScore : MonoBehaviourPunCallbacks,IPunObservable
 
 
             WaitingListOfTexts[LastFilledStandings, 0]= PlayerName;
-            WaitingListOfTexts[LastFilledStandings, 1]=   Mathf.Round(FinishingTime).ToString();
-            WaitingListOfTexts[LastFilledStandings, 2]=  Mathf.Round(TopSpeed).ToString();
-            WaitingListOfTexts[LastFilledStandings, 3]=  Mathf.Round(AverageSpeed).ToString();
+            WaitingListOfTexts[LastFilledStandings, 1] = "n/a";
+            WaitingListOfTexts[LastFilledStandings, 2] = FinishTimeString; //Mathf.Round(FinishingTime).ToString();
+            WaitingListOfTexts[LastFilledStandings, 3]=  Mathf.Round(TopSpeed).ToString();
+            WaitingListOfTexts[LastFilledStandings, 4]=  Mathf.Round(AverageSpeed).ToString();
             LastFilledStandings++;
 
             Standings[0] = GameObject.Find("Row1");
@@ -179,6 +186,7 @@ public class GamePlayScore : MonoBehaviourPunCallbacks,IPunObservable
     
     void RacePosition()
     {
+        /*
         for (int i = 0; i < RaceSystem.AllVertices.Length; i++)
         {
             if (RaceSystem.AllVertices[i].x > transform.position.x && RaceSystem.AllVertices[i].z > transform.position.z)
@@ -220,7 +228,7 @@ public class GamePlayScore : MonoBehaviourPunCallbacks,IPunObservable
                 MyPosition = i + 1;
             }
         }
-
+        */
     }
     public void ResetAllVariables()
     {

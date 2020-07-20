@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
+
 public class LobbyController : MonoBehaviourPunCallbacks
 {
     [HideInInspector]
-    public string SelectedPlaySceneName;
+    public int SelectedPlaySceneIndex;
     [HideInInspector]
     public string SelectedGameMode;
     public List<string> AllGameModes;
@@ -79,7 +81,7 @@ public class LobbyController : MonoBehaviourPunCallbacks
         //only master is allowed to change scene since   PhotonNetwork.AutomaticallySyncScene is set to true in start function client will auto sync to that scene
         if (PhotonNetwork.IsMasterClient)
         {
-            PhotonNetwork.LoadLevel(1);
+            PhotonNetwork.LoadLevel(SelectedPlaySceneIndex);
         }
     }
     #endregion

@@ -7,10 +7,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 390194587461710756, guid: 536307d06723b304abbb9c424d39ef30,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 390194587461710756, guid: 536307d06723b304abbb9c424d39ef30,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567328266517968782, guid: 536307d06723b304abbb9c424d39ef30,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567328266517968782, guid: 536307d06723b304abbb9c424d39ef30,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757227578828990366, guid: 536307d06723b304abbb9c424d39ef30,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757227578828990366, guid: 536307d06723b304abbb9c424d39ef30,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.57
+      objectReference: {fileID: 0}
     - target: {fileID: 3423936517249274750, guid: 536307d06723b304abbb9c424d39ef30,
         type: 3}
       propertyPath: m_SuspensionDistance
       value: 0.1962
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505279663973546613, guid: 536307d06723b304abbb9c424d39ef30,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.77
       objectReference: {fileID: 0}
     - target: {fileID: 4032427407609174123, guid: 536307d06723b304abbb9c424d39ef30,
         type: 3}
@@ -76,6 +111,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SuspensionSpring.damper
       value: 1499.9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5844570725150934751, guid: 536307d06723b304abbb9c424d39ef30,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 5844570725150934751, guid: 536307d06723b304abbb9c424d39ef30,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204891533093052059, guid: 536307d06723b304abbb9c424d39ef30,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.55
       objectReference: {fileID: 0}
     - target: {fileID: 7462183973788183181, guid: 536307d06723b304abbb9c424d39ef30,
         type: 3}
@@ -177,6 +227,11 @@ PrefabInstance:
       propertyPath: WheelMeshes.Array.data[3]
       value: 
       objectReference: {fileID: 8437157449470585102}
+    - target: {fileID: 9030792105997358949, guid: 536307d06723b304abbb9c424d39ef30,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.73
+      objectReference: {fileID: 0}
     - target: {fileID: 9168166874241113848, guid: 536307d06723b304abbb9c424d39ef30,
         type: 3}
       propertyPath: m_Name

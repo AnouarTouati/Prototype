@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using System.Collections;
+using System.Net.Http.Headers;
 
 public class Motor : MonoBehaviourPunCallbacks
 {
@@ -64,6 +65,7 @@ public class Motor : MonoBehaviourPunCallbacks
     public Transform SideLeftSensorStartTransform;
     public bool AIDriving = false;
     public bool Avoiding = false;
+    private float AIStuckTimer = 0;
     public bool AIAccelerates = true;
     public bool AIBrakes = false;
      bool AICarPoistionIsBeingReset = false;
@@ -183,13 +185,9 @@ public class Motor : MonoBehaviourPunCallbacks
         {
             if (RaceSystem.RaceStarted && !GamePlayScore.FinishedTheRace &&  !AICarPoistionIsBeingReset && !WheelColliders[0].isGrounded && !WheelColliders[1].isGrounded && !WheelColliders[2].isGrounded && !WheelColliders[3].isGrounded)
             {
-                AICarPoistionIsBeingReset = true;
-            //    Debug.Log("reset car");
-                ResetCarPosition();
-                StartCoroutine("AICheckIfCarIsReset");
+                StartCoroutine("AICheckIfAllWheelsAreStillOffGround");
             }
             
-        
       
             UpdateCalculationsForAI();
         }
@@ -198,11 +196,20 @@ public class Motor : MonoBehaviourPunCallbacks
 
     }
    
-
+    IEnumerator AICheckIfAllWheelsAreStillOffGround()
+    {
+        yield return new WaitForSeconds(3f);
+        if (RaceSystem.RaceStarted && !GamePlayScore.FinishedTheRace && !AICarPoistionIsBeingReset && !WheelColliders[0].isGrounded && !WheelColliders[1].isGrounded && !WheelColliders[2].isGrounded && !WheelColliders[3].isGrounded)
+        {
+            AICarPoistionIsBeingReset = true;
+            ResetCarPosition();
+            StartCoroutine("AICheckIfCarIsReset");
+        }
+    }
     
     void UpdateCalculationsForAI()
     {
-    
+        AICheckIfStuck();
         Sensor();
         AIAccelerationBrakingSystem();
         if (RaceSystem == null)
@@ -645,6 +652,30 @@ public class Motor : MonoBehaviourPunCallbacks
 
 
     }
+    void AICheckIfStuck()
+    {
+        if(RaceSystem.RaceStarted && !GamePlayScore.FinishedTheRace)
+        {
+            if (GetComponent<Rigidbody>().velocity.magnitude < 2 && AIStuckTimer < 3f)
+            {
+                AIStuckTimer += Time.deltaTime;
+            }
+            else if (AIStuckTimer >= 3f)
+            {
+                Debug.Log("Car Got Stuck and was reseted");
+                ResetCarPosition();
+                AIStuckTimer = 0f;
+            }
+            else
+            {
+                AIStuckTimer = 0f;
+            }
+        }
+        else
+        {
+            AIStuckTimer = 0f;
+        }
+    }
     public void ResetCarPosition()
     {
         //adjust the waypoints in scene so that the Z axis points forward
@@ -674,14 +705,12 @@ public class Motor : MonoBehaviourPunCallbacks
         
         float ResetAngle = Vector2.SignedAngle(transform.forward,desiredDirectionVector);
      
-        transform.position = RaceSystem.WayPoints[MinDistanceIndex].transform.position + new Vector3(0, 3, 0);
-
         Quaternion rotation = Quaternion.AngleAxis(-ResetAngle, Vector3.up);
         transform.rotation *= rotation;
         transform.eulerAngles = new Vector3(0, transform.rotation.eulerAngles.y, 0);*/
-        Quaternion newRotation = Quaternion.LookRotation(desiredDirectionVector);
+        Quaternion newRotation = Quaternion.LookRotation(desiredDirectionVector,Vector3.up);//vector3.up is critial for this to work
         transform.rotation = newRotation;
-
+        transform.position = RaceSystem.WayPoints[MinDistanceIndex].transform.position + new Vector3(0, 3, 0);
     }
    
     IEnumerator AICheckIfCarIsReset()
@@ -855,24 +884,25 @@ public class Motor : MonoBehaviourPunCallbacks
             }
 
 
-            if (Avoiding)
-            {
-
-
-                //   WheelColliders[0].steerAngle = AvoidMultiplier * 25;
-                //   WheelColliders[1].steerAngle = AvoidMultiplier * 25;
-                ApplySteeringAngle(AvoidMultiplier * 25);
-            }
-            else if (RaceSystem.WayPoints.Length != 0 && CurrentWayPointIndex<RaceSystem.WayPoints.Length)
+           
+            if (RaceSystem.WayPoints.Length != 0 && CurrentWayPointIndex<RaceSystem.WayPoints.Length)
             {
 
 
                 relativeVector = transform.InverseTransformPoint(RaceSystem.WayPoints[CurrentWayPointIndex].position);
                 relativeVector = relativeVector / relativeVector.magnitude;
 
-                //   WheelColliders[0].steerAngle = relativeVector.x * 25;
-                //   WheelColliders[1].steerAngle = relativeVector.x * 25;
-                ApplySteeringAngle(relativeVector.x * 25);
+                if (Avoiding)
+                {
+                    AvoidMultiplier = Mathf.Clamp(AvoidMultiplier, -1, 1);
+                }
+                else
+                {
+                    AvoidMultiplier = 0;
+                }
+                float SteerAmount = relativeVector.x + AvoidMultiplier;
+                SteerAmount /= 2;
+                ApplySteeringAngle(SteerAmount * 25);
             }
 
 
@@ -1038,10 +1068,6 @@ public class Motor : MonoBehaviourPunCallbacks
                 }
             }
 
-            if (Avoiding)
-            {
-                Debug.Log("Avoiding");
-            }
         }
 
 
@@ -1080,6 +1106,5 @@ public class Motor : MonoBehaviourPunCallbacks
         WheelColliders[3].sidewaysFriction = SuspensionAndTires.RearWheelsSideWaysdFriction;
         */
     }
-
 
 }

@@ -40,9 +40,8 @@ public class RaceSystem : MonoBehaviourPunCallbacks,IPunObservable {
 
  
     public GameObject prefab;
-    public Mesh ms;
-    [HideInInspector]
-    public Vector3[] AllVertices;
+  
+   
 
     [Header("SpawningItems")]
     public const float RespawnItemDelay=10f;
@@ -72,15 +71,10 @@ public class RaceSystem : MonoBehaviourPunCallbacks,IPunObservable {
         }
         
         GUIGamePlay = GameObject.Find("GUI").GetComponent<GUIGamePlay>();
-      
-
-        
-        
-        if (ms != null&& RoomController.GameMode=="Racing")
-        {
-            AllVertices = ms.vertices;
+     
+          
             RandomizeWayPoints();
-        }
+        
         
     /*   if( GameMode == "DeathMatch")
         {
@@ -206,12 +200,11 @@ public class RaceSystem : MonoBehaviourPunCallbacks,IPunObservable {
 
    public void RandomizeWayPoints()
     {
+       
         float temp=0.5f;
         for (int i = 1; i < WayPoints.Length; i++)
         {
           
-          
-            Vector3 previous = WayPoints[i - 1].transform.position;
             if (i % 4 == 0)
             {
                 if (temp > 0)
@@ -230,7 +223,7 @@ public class RaceSystem : MonoBehaviourPunCallbacks,IPunObservable {
             }
             WayPoints[i].transform.position +=  new Vector3(temp, 0, 0);
         }
-
+        Debug.Log("WayPoints Randomized");
     }
    [PunRPC]
     void RPC_PickableItemsContainer(GameObject PickableItemsContainerToSpawn, Vector3 SpawnPointPosition,Quaternion SpawnPointRotation)
