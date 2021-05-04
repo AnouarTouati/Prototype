@@ -58,7 +58,7 @@ public class RoomController : MonoBehaviourPunCallbacks,IPunObservable
     {
         
     }
-    public void LeaveRoom()
+    public void ReturnToLobby()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<EngineAudio>().ResetTheScript();
       /* GameObject[] OtherPlayers=GameObject.FindGameObjectsWithTag("OtherPlayer");
@@ -67,6 +67,7 @@ public class RoomController : MonoBehaviourPunCallbacks,IPunObservable
             OtherPlayer.GetComponent<EngineAudio>().ResetTheScript();
         }*/  
         PhotonNetwork.LeaveRoom();
+     
     }
     #region CallBacks
     public override void OnLeftRoom()

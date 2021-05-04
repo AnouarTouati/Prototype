@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18323368, g: 0.22888169, b: 0.3064085, a: 1}
+  m_IndirectSpecularColor: {r: 0.46520114, g: 0.5157208, b: 0.5894825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3897,6 +3897,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256857649}
   m_CullTransparentMesh: 0
+--- !u!1 &267726959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 267726960}
+  m_Layer: 0
+  m_Name: Should use cubic spline interpolation for AI Driving
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &267726960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267726959}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -704.2259, y: 44.949726, z: -1091.144}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &270472306
 GameObject:
   m_ObjectHideFlags: 0
@@ -6036,7 +6066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34af167fe6f740c4e80ea247bf10bc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedPlaySceneName: 
+  SelectedPlaySceneIndex: 0
   SelectedGameMode: 
   AllGameModes:
   - Racing

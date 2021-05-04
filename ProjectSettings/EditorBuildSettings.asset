@@ -11,10 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Japan.unity
     guid: 60abfce67216d4347a3ff16f711fb079
-  - enabled: 1
-    path: Assets/Scenes/Japan2.unity
-    guid: c651fbf5a7d3abc4a96d1532ba7f6f96
-  - enabled: 1
-    path: Assets/Scenes/ZombieRunOver.unity
-    guid: 1ed6fc5518f0ce5489face9c91a460aa
   m_configObjects: {}

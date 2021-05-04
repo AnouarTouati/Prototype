@@ -126,7 +126,7 @@ public class GUIGamePlay : MonoBehaviour
     }
     public void LoadMainMenu()
     {
-        RoomController.LeaveRoom();
+        RoomController.ReturnToLobby();
     }
     public void EnablePreRaceGUI()
     {
