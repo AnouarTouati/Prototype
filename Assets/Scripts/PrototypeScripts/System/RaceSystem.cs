@@ -223,7 +223,7 @@ public class RaceSystem : MonoBehaviourPunCallbacks,IPunObservable {
             }
             WayPoints[i].transform.position +=  new Vector3(temp, 0, 0);
         }
-        Debug.Log("WayPoints Randomized");
+        
     }
    [PunRPC]
     void RPC_PickableItemsContainer(GameObject PickableItemsContainerToSpawn, Vector3 SpawnPointPosition,Quaternion SpawnPointRotation)
