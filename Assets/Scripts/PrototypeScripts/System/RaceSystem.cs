@@ -178,7 +178,7 @@ public class RaceSystem : MonoBehaviourPunCallbacks,IPunObservable {
                 CheckPoints[i].GetComponent<CheckPoint>().MyIndex = i;
                 for (int j= 0; j < CheckPoints[i].GetComponent<CheckPoint>().MeshRenderes.Length; j++)
                 {
-                    CheckPoints[i].GetComponent<CheckPoint>().MeshRenderes[j].enabled = true;
+                   // CheckPoints[i].GetComponent<CheckPoint>().MeshRenderes[j].enabled = true;
                 }
               
                 if (i != CheckPoints.Length - 1)
